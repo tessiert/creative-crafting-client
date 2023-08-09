@@ -14,8 +14,10 @@ import {
     DropdownItem,
     DropdownMenu
 } from 'reactstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SiteLogo from '../app/assets/img/logo.png';
+import orderForm from '../app/assets/docs/order_form.pdf'
+
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,7 +29,7 @@ const Header = () => {
                         <Col className='mt-4 p-0 md-2'>
                             <NavbarBrand href='/'>
                                 <img
-                                    id='logo' src={ SiteLogo } alt='Creative Crafting Logo'
+                                    id='logo' src={SiteLogo} alt='Creative Crafting Logo'
                                 />
                             </NavbarBrand>
                         </Col>
@@ -38,7 +40,7 @@ const Header = () => {
                         <Col className='mt-4 p-0 md-2'>
                             <NavbarBrand href='/'>
                                 <img
-                                    id='logo' src={ SiteLogo } alt='Creative Crafting Logo'
+                                    id='logo' src={SiteLogo} alt='Creative Crafting Logo'
                                 />
                             </NavbarBrand>
                         </Col>
@@ -90,9 +92,10 @@ const Header = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='top-navbar-orders' className='nav-link' to='/order_form.pdf'>
+                            <a id='top-navbar-orders' className='nav-link'
+                                href={ orderForm } target='_blank' rel='noreferrer'>
                                 Orders
-                            </NavLink>
+                            </a>
                         </NavItem>
                         <NavItem className='position-absolute end-0'>
                             <NavLink className='nav-link' to='#'>
@@ -102,9 +105,6 @@ const Header = () => {
                     </Nav>
                 </Collapse>
             </Navbar>
-            <Link id="back-to-top" to='#' className='btn btn-light btn-sm back-to-top' role='button'>
-                <i class="fa fa-chevron-up" aria-hidden="true"></i>
-            </Link>
         </>
     );
 };
