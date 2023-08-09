@@ -27,7 +27,7 @@ const Header = () => {
                         <Col className='mt-4 p-0 md-2'>
                             <NavbarBrand href='/'>
                                 <img
-                                    id='logo' src={SiteLogo} alt='Creative Crafting Logo'
+                                    id='logo' src={ SiteLogo } alt='Creative Crafting Logo'
                                 />
                             </NavbarBrand>
                         </Col>
@@ -38,7 +38,7 @@ const Header = () => {
                         <Col className='mt-4 p-0 md-2'>
                             <NavbarBrand href='/'>
                                 <img
-                                    id='logo' src={SiteLogo} alt='Creative Crafting Logo'
+                                    id='logo' src={ SiteLogo } alt='Creative Crafting Logo'
                                 />
                             </NavbarBrand>
                         </Col>
@@ -75,22 +75,22 @@ const Header = () => {
                             </UncontrolledDropdown>
                         </NavItem>
                         <NavItem>
-                            <NavLink className='nav-link' to='/'>
+                            <NavLink className='nav-link' to='/shipping'>
                                 Shipping & Returns
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className='nav-link' to='/'>
+                            <NavLink className='nav-link' to='/about'>
                                 About
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className='nav-link' to='/'>
+                            <NavLink className='nav-link' to='/contact'>
                                 Contact
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='top-navbar-orders' className='nav-link' to='/'>
+                            <NavLink id='top-navbar-orders' className='nav-link' to='/order_form.pdf'>
                                 Orders
                             </NavLink>
                         </NavItem>
@@ -102,9 +102,9 @@ const Header = () => {
                     </Nav>
                 </Collapse>
             </Navbar>
-            <a id="back-to-top" href="#" class="btn btn-light btn-sm back-to-top" role="button">
+            <Link id="back-to-top" to='#' className='btn btn-light btn-sm back-to-top' role='button'>
                 <i class="fa fa-chevron-up" aria-hidden="true"></i>
-            </a>
+            </Link>
         </>
     );
 };
