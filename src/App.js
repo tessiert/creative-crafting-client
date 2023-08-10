@@ -1,26 +1,35 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from 'react-scroll-to-top';
+import AboutPage from './pages/AboutPage';
+import CartPage from './pages/CartPage';
+import ContactPage from './pages/ContactPage';
+import HatsPage from './pages/hats/HatsPage';
+import KeychainsPage from './pages/keychains/KeychainsPage';
+import NecklacesPage from './pages/necklaces/NecklacesPage';
+import HomePage from './pages/HomePage';
+import ShippingPage from './pages/ShippingPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { BrowserRouter as Router } from 'react-router-dom';
-import ScrollToTop from 'react-scroll-to-top';
 // import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <ScrollToTop top='40' />
+      <ScrollToTop top={300} />
       <Router>
         <Header />
-        <p>Individual Page Content Inserts Here</p>
-        <p>blah</p>
-        <p>blah</p>
-        <p>blah</p>
-        <p>blah</p>
-        <p>blah</p>
-        <p>blah</p>
-        <p>blah</p>
-        <p>blah</p>
-        <p>blah</p>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='about' element={<AboutPage />} />
+          <Route path='cart' element={<CartPage />} />
+          <Route path='contact' element={<ContactPage />} />
+          <Route path='shipping' element={<ShippingPage />} />
+          <Route path='hats' element={<HatsPage />} />
+          <Route path='keychains' element={<KeychainsPage />} />
+          <Route path='hats' element={<NecklacesPage />} />
+        </Routes>
         <Footer />
       </Router>
     </div>

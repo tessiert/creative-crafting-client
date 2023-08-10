@@ -30,7 +30,7 @@ figcaption>a {
 }
 
 .navbar-toggler {
-  margin-left: 20px;
+  margin-left: 20px !important;
 }
 
 .img-rounded {
@@ -38,7 +38,7 @@ figcaption>a {
 }
 
 .jumbotron {
-  margin: 0;
+  /* margin: 0; */
   /* padding: 30px; */
   color: white;
 }
@@ -181,11 +181,17 @@ footer.jumbotron {
 }
 
 .navbar-item {
-  margin-left: 20px;
+  margin-left: 20px !important;
 }
 
-#top-navbar-orders {
-  margin-right: 20px;
+.nav-dropdown-item {
+  color: black !important;
+  font-size: 1.2rem !important;
+  padding: 0 !important;
+}
+
+.navbar-right-item {
+  margin-right: 40px !important;
 }
 
 /* Bootstrap Alterations */
