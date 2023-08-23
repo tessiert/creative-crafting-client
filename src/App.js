@@ -27,8 +27,11 @@ function App() {
           <Route path='contact' element={<ContactPage />} />
           <Route path='shipping' element={<ShippingPage />} />
           <Route path='hats' element={<HatsPage />} />
+          {/* <Route path='hats/:hatId' element={<IndividualHatPage />} /> */}
           <Route path='keychains' element={<KeychainsPage />} />
-          <Route path='hats' element={<NecklacesPage />} />
+          {/* <Route path='keychains/:keychainId' element={<IndividualkeychainPage />} /> */}
+          <Route path='necklaces' element={<NecklacesPage />} />
+          {/* <Route path='necklaces/:necklaceId' element={<IndividualNecklacePage />} /> */}
         </Routes>
         <Footer />
       </Router>

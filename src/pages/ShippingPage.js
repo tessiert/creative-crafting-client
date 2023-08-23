@@ -1,10 +1,50 @@
-import { Container } from 'reactstrap';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
 
 const ShippingPage = () => {
+
+    useEffect(() => {
+        document.title = "Shipping and Handling";
+    }, []);
+
     return (
-        <Container>
-            <p>Shipping Page</p>
-        </Container>
+        <>
+            <Container>
+                <Row className='text-center'>
+                    <Col>
+                        <h2 className="gallery-header mt-5 mb-4">
+                            Shipping and Handling
+                        </h2>
+                    </Col>
+                </Row>
+            </Container>
+
+            <Container>
+                <Row>
+                    <Col className='offset-1 col-10 d-flex justify-content-center'>
+                        <ul>
+                            <li>Items are shipped 1 - 3 days after purchase.</li>
+                            <li>Shipping is a flat rate of $5 to anywhere in the U.S.</li>
+                            <li>We apologize, but international orders cannot be accepted at this time.</li>
+                            <li>Doesn't fit? Not quite the color you were hoping for?
+                                <Link
+                                    className="text-link" to="/contact"> Please contact us!
+                                </Link>
+                            </li>
+                        </ul>
+                    </Col>
+                </Row>
+                <Row className='mt-4 mb-4'>
+                    <Col className='offset-1 col-10 d-flex justify-content-center'>
+                        <p>
+                            We will do anything we can to help make it right, including
+                            accepting returns if shipped back to us within 1 week of receipt.
+                        </p>
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 };
 
