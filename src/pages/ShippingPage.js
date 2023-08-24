@@ -1,25 +1,19 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
+import PageTitle from '../components/PageTitle';
+
+const pageTitle = 'Shipping and Returns'
 
 const ShippingPage = () => {
 
     useEffect(() => {
-        document.title = "Shipping and Handling";
+        document.title = pageTitle;
     }, []);
 
     return (
         <>
-            <Container>
-                <Row className='text-center'>
-                    <Col>
-                        <h2 className="gallery-header mt-5 mb-4">
-                            Shipping and Handling
-                        </h2>
-                    </Col>
-                </Row>
-            </Container>
-
+            <PageTitle title={pageTitle} />
             <Container>
                 <Row>
                     <Col className='offset-1 col-10 d-flex justify-content-center'>
