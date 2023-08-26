@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import PageTitle from '../components/PageTitle';
 
-const pageTitle = 'Shipping and Returns'
+const pageTitle = 'Shipping and Returns';
 
 const ShippingPage = () => {
 

@@ -72,10 +72,10 @@ footer.jumbotron {
   filter: invert(100%);
 }
 
-#homeCarousel .carousel-item img {
+#homeCarouselImg {
   object-fit: cover;
   object-position: center;
-  height: 80vh;
+  height: 90vh;
   overflow: hidden;
 }
 

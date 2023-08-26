@@ -3,7 +3,7 @@ import { Card, CardHeader, CardBody, CardText, Container, Row, Col } from 'react
 import PageTitle from '../components/PageTitle';
 import aboutImg from '../app/assets/img/about.jpg';
 
-const pageTitle = 'About Us'
+const pageTitle = 'About Us';
 
 const AboutPage = () => {
 
@@ -25,24 +25,44 @@ const AboutPage = () => {
 
             <Container>
                 <Row>
-                    <Col lg='4' className='mt-4 mb-4'>
+                    <Col lg='6' className='mt-4'>
                         <Card>
                             <CardHeader>Lori Sanfratello</CardHeader>
                             <CardBody>
                                 <CardText>
-                                    Need blurb here.
+                                    <p>Creative Crafting began more than 20 years
+                                    ago, when I was a graduate student spending
+                                    a winter break working at a High Energy
+                                    Particle Physics lab.  I began crocheting
+                                    hats to relax in my free time!
+                                    When I discovered other people liked them,
+                                    I began offering them for sale.  I soon
+                                    started designing my own crochet creations,
+                                    and a few years later had published numerous
+                                    patterns in a variety of magazines
+                                    along with two of my own books.
+                                    The Albuquerque Journal was awesome and
+                                    featured me in an article on local Artisans.</p>
+                                    <p>These many years later (in a new state, with
+                                    a new career) I still crochet, but have
+                                    expanded my crafting repertoire to include wire
+                                    wrapping, quilling, painting,  jewelry making,
+                                    and a tiny bit of knitting.  Many of these
+                                    crafts I now share with my daughter.  It has
+                                    given us an amazing opportunity to create
+                                    together - I am amazed and inspired by this
+                                    little person with so much wisdom, creativity,
+                                    and love!</p>
                                 </CardText>
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col lg='4' className='d-flex align-items-center mb-4'>
+                    <Col lg='6' className='mt-4 mb-4'>
                         <Card>
                             <img style={{ borderRadius: 8 }} src={aboutImg}
                                 alt='Lori and Alex' />
                         </Card>
-                    </Col>
-                    <Col lg='4' className='mt-4 mb-4'>
-                        <Card>
+                        <Card className='mt-4 mb-4'>
                             <CardHeader>Alexandra Tessier</CardHeader>
                             <CardBody>
                                 <CardText>
@@ -56,6 +76,8 @@ const AboutPage = () => {
                             </CardBody>
                         </Card>
                     </Col>
+                </Row>
+                <Row className='mb-4'>
                 </Row>
             </Container>
         </>

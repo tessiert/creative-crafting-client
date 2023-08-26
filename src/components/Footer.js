@@ -12,7 +12,7 @@ const Footer = () => {
                 <Container fluid>
                     <Row>
                         <Col md='3' lg='4' className='mt-3 mb-3 text-center align-middle'>
-                            <a role='button' class='btn btn-link' target='_blank' rel='noreferrer'
+                            <a role='button' className='btn btn-link' target='_blank' rel='noreferrer'
                                 href='https://www.etsy.com/shop/LoriLeighHandcrafted?ref=l2-about-shopname'>
                                 <img id='etsy-icon' src={ EtsyIcon } alt='Etsy Icon' />
                             </a>
@@ -21,8 +21,8 @@ const Footer = () => {
                             <small>&copy;Copyright 2023<br />Creative Crafting</small>
                         </Col>
                         <Col md='5' lg='4' className='mt-4 text-center align-middle'>
-                            <a role='button' id='email' class='btn btn-link' href='mailto:CreativeCrafting@gmail.com'>
-                                <i class='fa fa-envelope-o'></i> CreativeCrafting@gmail.com</a>
+                            <a role='button' id='email' className='btn btn-link' href='mailto:CreativeCrafting@gmail.com'>
+                                <i className='fa fa-envelope-o'></i> CreativeCrafting@gmail.com</a>
                         </Col>
                     </Row>
                 </Container>
