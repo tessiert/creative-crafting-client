@@ -1,11 +1,15 @@
-import { useEffect } from 'react';
-import { Container, Row, Col, FormGroup, Label, Button } from 'reactstrap';
+import { useState, useEffect } from 'react';
+import { Container, Row, Col, FormGroup, Label, Button, Modal, ModalHeader } from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import PageTitle from '../components/PageTitle';
+import { validateContactForm } from '../utils/validateContactForm';
 
 const pageTitle = 'Contact Us';
 
+let firstName = '';
+
 const ContactPage = () => {
+    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -14,18 +18,10 @@ const ContactPage = () => {
     const handleSubmit = (values, { resetForm }) => {
         console.log('form values:', values);
         console.log('JSON:', JSON.stringify(values));
+        firstName = values.firstName;
         resetForm();
+        setModalOpen(true);
     };
-
-    function validateEmail(value) {
-        let error;
-        if (!value) {
-            error = 'Email is Required.';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-            error = 'Please enter a valid email address.';
-        }
-        return error;
-    }
 
     const initialValues = {
         firstName: '',
@@ -58,7 +54,8 @@ const ContactPage = () => {
                     <Col lg='10'>
                         <Formik
                             initialValues={initialValues}
-                            onSubmit={handleSubmit}>
+                            onSubmit={handleSubmit}
+                            validate={validateContactForm}>
                             <Form>
                                 <FormGroup>
                                     <Label htmlFor='firstName'>First Name</Label>
@@ -68,9 +65,9 @@ const ContactPage = () => {
                                         maxlength='20'
                                         className='form-control'
                                     />
-                                    {/* <ErrorMessage name='firstName'>
+                                    <ErrorMessage name='firstName'>
                                             {(msg) => <p className='text-danger'>{msg}</p>}
-                                        </ErrorMessage> */}
+                                        </ErrorMessage>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label htmlFor='lastName'>Last Name</Label>
@@ -91,7 +88,6 @@ const ContactPage = () => {
                                         placeholder='Email'
                                         maxlength='50'
                                         className='form-control'
-                                        validate={validateEmail}
                                     />
                                     <ErrorMessage name='email'>
                                         {(msg) => <p className='text-danger'>{msg}</p>}
@@ -122,6 +118,12 @@ const ContactPage = () => {
                     </Col>
                 </Row>
             </Container>
+            <Modal isOpen={modalOpen}>
+                <ModalHeader toggle={() => setModalOpen(false)}>
+                    <p>{`Hi ${firstName},`}</p>
+                    <p>Your input has been received - thank you for contacting us!</p>
+                </ModalHeader>
+            </Modal>
         </>
     );
 };
