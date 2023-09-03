@@ -7,7 +7,7 @@ import {
     Button
 } from 'reactstrap';
 import carouselImg1 from '../app/assets/img/keychains/001_1.jpg';
-import carouselImg2 from '../app/assets/img/hats/001_1.jpg';
+import carouselImg2 from '../app/assets/img/hats/004_1.jpg';
 import carouselImg3 from '../app/assets/img/necklaces/002_1.jpg';
 import carouselImg4 from '../app/assets/img/hats/005_1.jpg';
 import carouselImg5 from '../app/assets/img/necklaces/006_1.jpg';
@@ -66,7 +66,7 @@ function HomeCarousel(args) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
     const [btnIcon, setBtnIcon] = useState('fa fa-pause');
-    const [interval, setInterval] = useState(initInterval);
+    const [playing, setPlaying] = useState(true);
 
     const next = () => {
         if (animating) return;
@@ -80,17 +80,17 @@ function HomeCarousel(args) {
         setActiveIndex(nextIndex);
     };
 
-    const goToIndex = (newIndex) => {
-        if (animating) return;
-        setActiveIndex(newIndex);
-    };
+    // const goToIndex = (newIndex) => {
+    //     if (animating) return;
+    //     setActiveIndex(newIndex);
+    // };
 
-    const carouselToggle = () => {
-        if (interval === initInterval) {
-            setInterval(null);
+    const playToggle = () => {
+        if (playing) {
+            setPlaying(false);
             setBtnIcon('fa fa-play');
         } else {
-            setInterval(initInterval);
+            setPlaying(true);
             setBtnIcon('fa fa-pause');
             next();
         }
@@ -99,11 +99,11 @@ function HomeCarousel(args) {
     const slides = items.map((item) => {
         return (
             <CarouselItem
-                // onExiting={() => setAnimating(true)}
-                // onExited={() => setAnimating(false)}
+                onExiting={() => setAnimating(true)}
+                onExited={() => setAnimating(false)}
                 key={item.src}
             >
-                <img id='homeCarouselImg' className="d-block w-100" src={item.src} alt={item.altText} />
+                <img id='homeCarouselImg' className='d-block w-100' src={item.src} alt={item.altText} />
                 <CarouselCaption
                     captionHeader={item.caption}
                     captionText={emptyStr}
@@ -118,12 +118,12 @@ function HomeCarousel(args) {
                 activeIndex={activeIndex}
                 next={next}
                 previous={previous}
-                interval={interval}
+                interval={playing ? initInterval : false}
                 ride='carousel'
                 pause={false} // 'false' prevents pause on mouse hover
                 {...args}
             >
-                <Button color='success' size='sm' onClick={carouselToggle}
+                <Button color='success' size='sm' onClick={playToggle}
                     id="carouselButton">
                     <i className={btnIcon}></i>
                 </Button>

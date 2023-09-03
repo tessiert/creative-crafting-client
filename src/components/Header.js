@@ -63,7 +63,7 @@ const Header = () => {
                                 <DropdownToggle nav caret>
                                     Products
                                 </DropdownToggle>
-                                <DropdownMenu right>
+                                <DropdownMenu end>
                                     <DropdownItem>
                                         <NavLink className='nav-link nav-dropdown-item' to='/hats'>
                                             Hats

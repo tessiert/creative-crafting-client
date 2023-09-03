@@ -51,6 +51,10 @@ footer.jumbotron {
   background-image: linear-gradient(to right, saddlebrown 0%, darkolivegreen 30%, darkolivegreen 70%, saddlebrown 100%);
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .carousel-caption {
   color: black;
   left: 1%;

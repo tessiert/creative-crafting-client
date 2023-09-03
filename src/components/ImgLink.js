@@ -1,12 +1,17 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-// const MainImgLink = () => {
-//     return (
-//         <Link to={ productCategory }>
-//             <img=src
-//         </Link>
+const ImgLink = ({ route, src, altText, caption, margins }) => {
+    return (
+        <Link to={route}>
+            <figure>
+                <img className={`figure-img img-fluid img-thumbnail img-rounded ${margins}`} src={src}
+                    alt={altText} />
+                <figcaption className="figure-caption capitalize text-center">
+                    {caption}
+                </figcaption>
+            </figure>
+        </Link>
+    );
+};
 
-//     );
-// };
-
-// export default MainImgLink;
+export default ImgLink;
