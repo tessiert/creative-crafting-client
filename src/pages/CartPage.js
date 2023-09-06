@@ -3,7 +3,7 @@ import { Container } from 'reactstrap';
 const CartPage = () => {
     return (
         <Container>
-            <p>Cart Page</p>
+            <p>Shopping Cart - Coming Soon!</p>
         </Container>
     );
 };
