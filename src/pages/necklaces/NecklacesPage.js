@@ -33,12 +33,13 @@ const NecklacesPage = () => {
                         return (
                             <Col key={idx} lg='4' className='mb-4 mb-lg-0'>
                                 {colItems.map((item) => {
-                                    const { id, img, desc, margins } = item;
+                                    const { id, img, desc, imgClasses, captionClasses } = item;
 
                                     return (
                                         <ImgLink key={id} route={`/${id}`} src={img}
                                             altText={desc} caption={desc}
-                                            margins={margins} />
+                                            imgClasses={imgClasses}
+                                            captionClasses={captionClasses} />
                                     );
                                 })}
                             </Col>

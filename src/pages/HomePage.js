@@ -25,13 +25,14 @@ const HomePage = () => {
                 </Row>
                 <Row className='mt-5'>
                     {featuredItems.map((item, idx) => {
-                        const { route, img, altText, caption, margins } = item;
+                        const { route, img, altText, caption, imgClasses, captionClasses } = item;
 
                         return (
                             <Col key={idx} sm='4' className='mb-5'>
                                 <ImgLink route={route} src={img}
                                     altText={altText} caption={caption}
-                                    margins={margins} />
+                                    imgClasses={imgClasses}
+                                    captionClasses={captionClasses} />
                             </Col>
                         );
                     })}

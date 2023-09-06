@@ -15,19 +15,19 @@ export const NECKLACE_GALLERY = [
                 id: 'necklace001',
                 img: img001,
                 desc: 'Brown Geodes in Silver Square',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'necklace002',
                 img: img002,
                 desc: 'Woman Dancing in Small Stainless Steel',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'necklace003',
                 img: img003,
                 desc: 'Red Seafloor in Silver Circle',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             }
         ]
     },
@@ -37,19 +37,20 @@ export const NECKLACE_GALLERY = [
                 id: 'necklace004',
                 img: img004,
                 desc: 'Blue Geodes in Silver Square',
-                margins: 'mt-0 mb-4'
+                imgClasses: 'mt-0 mb-4'
             },
             {
                 id: 'necklace005',
                 img: img005,
                 desc: 'Blue Jellyfish in Small Stainless Steel',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'necklace006',
                 img: img006,
                 desc: 'Butterfly Wing in Bronze Flower - Sold',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4 sold',
+                captionClasses: 'sold-text'
             }
         ]
     },
@@ -59,19 +60,19 @@ export const NECKLACE_GALLERY = [
                 id: 'necklace007',
                 img: img007,
                 desc: 'Golden Seafloor in Bronze Circle',
-                margins: 'mt-4 mb-4'
+                imgClasses: 'mt-4 mb-4'
             },
             {
                 id: 'necklace008',
                 img: img008,
                 desc: 'White Flower in Silver Circle',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'necklace009',
                 img: img009,
                 desc: 'Purple Sky, White Clouds in Small Stainless Steel',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             }
         ]
     }

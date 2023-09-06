@@ -8,20 +8,20 @@ export const FEATURED_ITEMS = [
         img: featuredKeychain,
         altText: 'keychains',
         caption: 'Keychains',
-        margins: 'mt-0 mb-0'
+        imgClasses: 'mt-0 mb-0'
     },
     {
         route: '/hats',
         img: featuredHat,
         altText: 'crochet hats',
         caption: 'Crochet Hats',
-        margins: 'mt-0 mb-0'
+        imgClasses: 'mt-0 mb-0'
     },
     {
         route: '/necklaces',
         img: featuredNecklace,
         altText: 'necklaces',
         caption: 'Necklaces',
-        margins: 'mt-0 mb-0'
+        imgClasses: 'mt-0 mb-0'
     }
 ]

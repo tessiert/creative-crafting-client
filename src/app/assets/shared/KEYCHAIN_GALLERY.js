@@ -15,19 +15,19 @@ export const KEYCHAIN_GALLERY = [
                 id: 'keychain001',
                 img: img001,
                 desc: 'Red Rose in Black Wood',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'keychain002',
                 img: img002,
                 desc: 'Seahorse in Natural Wood',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'keychain003',
                 img: img003,
                 desc: 'Flower Spiral in Bronze',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             }
         ]
     },
@@ -37,19 +37,19 @@ export const KEYCHAIN_GALLERY = [
                 id: 'keychain004',
                 img: img004,
                 desc: 'Girl With Dandelion and Cat in Silver',
-                margins: 'mt-0 mb-4'
+                imgClasses: 'mt-0 mb-4'
             },
             {
                 id: 'keychain005',
                 img: img005,
                 desc: 'Butterfly in Black Wood',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'keychain006',
                 img: img006,
                 desc: 'Dolphins at the Beach',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             }
         ]
     },
@@ -59,19 +59,19 @@ export const KEYCHAIN_GALLERY = [
                 id: 'keychain007',
                 img: img007,
                 desc: 'Sea Witch in Bronze - 1.25 inch (30mm), glass dome',
-                margins: 'mt-4 mb-4'
+                imgClasses: 'mt-4 mb-4'
             },
             {
                 id: 'keychain008',
                 img: img008,
                 desc: 'Autumn Leaves in Copper',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             },
             {
                 id: 'keychain009',
                 img: img009,
                 desc: 'Bright Feather in Bronze',
-                margins: 'mt-5 mb-4'
+                imgClasses: 'mt-5 mb-4'
             }
         ]
     }
