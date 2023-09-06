@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 
 const ImgLink = ({ route, src, altText, caption, imgClasses, captionClasses }) => {
+    if (imgClasses.search('sold') !== -1) {
+        route = '';
+    }
     return (
         <Link to={route}>
             <figure>
