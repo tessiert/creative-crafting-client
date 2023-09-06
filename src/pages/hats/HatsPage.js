@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { HAT_GALLERY } from '../../app/assets/shared/HAT_GALLERY';
 import PageTitle from '../../components/PageTitle';
 import ImgLink from '../../components/ImgLink';
-
+// import { HAT_GALLERY } from '../../app/assets/shared/HAT_GALLERY';
+import { selectHatGallery } from '../../features/hats/HatsSlice';
 
 const pageTitle = 'Hand Crochet Hats';
 
 const HatsPage = () => {
+    const hatGallery = useSelector(selectHatGallery);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -25,7 +27,7 @@ const HatsPage = () => {
             {/* Display Gallery */}
             <Container>
                 <Row>
-                    {HAT_GALLERY.map((column, idx) => {
+                    {hatGallery.map((column, idx) => {
                         const { colItems } = column;
 
                         return (

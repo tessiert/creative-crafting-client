@@ -5,10 +5,11 @@ import { Container, Row, Col } from 'reactstrap';
 import HomeCarousel from '../components/HomeCarousel';
 import ImgLink from '../components/ImgLink';
 import { selectFeaturedItems } from '../features/homepage/homepageSlice';
+
 const pageTitle = 'Creative Crafting';
 
 const HomePage = () => {
-    const featured_items = useSelector(selectFeaturedItems);
+    const featuredItems = useSelector(selectFeaturedItems);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -23,7 +24,7 @@ const HomePage = () => {
                     </Col>
                 </Row>
                 <Row className='mt-5'>
-                    {featured_items.map((item, idx) => {
+                    {featuredItems.map((item, idx) => {
                         const { route, img, altText, caption, margins } = item;
 
                         return (
