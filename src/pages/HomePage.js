@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { FEATURED_ITEMS } from '../app/assets/shared/FEATURED_ITEMS';
+// import { FEATURED_ITEMS } from '../app/assets/shared/FEATURED_ITEMS';
 import HomeCarousel from '../components/HomeCarousel';
 import ImgLink from '../components/ImgLink';
-
+import { selectFeaturedItems } from '../features/homepage/homepageSlice';
 const pageTitle = 'Creative Crafting';
 
 const HomePage = () => {
+    const featured_items = useSelector(selectFeaturedItems);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -21,7 +23,7 @@ const HomePage = () => {
                     </Col>
                 </Row>
                 <Row className='mt-5'>
-                    {FEATURED_ITEMS.map((item, idx) => {
+                    {featured_items.map((item, idx) => {
                         const { route, img, altText, caption, margins } = item;
 
                         return (
