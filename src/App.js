@@ -7,6 +7,7 @@ import CartPage from './pages/CartPage';
 import ContactPage from './pages/ContactPage';
 import HatsPage from './pages/hats/HatsPage';
 import KeychainsPage from './pages/keychains/KeychainsPage';
+import KeychainDetailPage from './pages/keychains/KeychainDetailPage';
 import NecklacesPage from './pages/necklaces/NecklacesPage';
 import HomePage from './pages/HomePage';
 import ShippingPage from './pages/ShippingPage';
@@ -27,11 +28,11 @@ function App() {
           <Route path='contact' element={<ContactPage />} />
           <Route path='shipping' element={<ShippingPage />} />
           <Route path='hats' element={<HatsPage />} />
-          {/* <Route path='hats/:hatId' element={<IndividualHatPage />} /> */}
+          {/* <Route path='hats/:hatId' element={<HatDetailPage />} /> */}
           <Route path='keychains' element={<KeychainsPage />} />
-          {/* <Route path='keychains/:keychainId' element={<IndividualkeychainPage />} /> */}
+          <Route path='keychains/:keychainId' element={<KeychainDetailPage />} />
           <Route path='necklaces' element={<NecklacesPage />} />
-          {/* <Route path='necklaces/:necklaceId' element={<IndividualNecklacePage />} /> */}
+          {/* <Route path='necklaces/:necklaceId' element={<NecklaceDetailPage />} /> */}
         </Routes>
         <Footer />
       </Router>

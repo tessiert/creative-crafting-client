@@ -1,5 +1,5 @@
-import { HAT_GALLERY } from '../../app/assets/shared/HAT_GALLERY';
+import { HATS } from '../../app/assets/shared/HATS';
 
-export const selectHatGallery = () => {
-    return HAT_GALLERY;
+export const selectAllHats = () => {
+    return HATS;
 }

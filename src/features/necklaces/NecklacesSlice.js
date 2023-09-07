@@ -1,5 +1,5 @@
-import { NECKLACE_GALLERY } from "../../app/assets/shared/NECKLACE_GALLERY";
+import { NECKLACES } from "../../app/assets/shared/NECKLACES";
 
-export const selectNecklaceGallery = () => {
-    return NECKLACE_GALLERY;
+export const selectAllNecklaces = () => {
+    return NECKLACES;
 }

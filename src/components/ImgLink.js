@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const ImgLink = ({ route, src, altText, caption, imgClasses, captionClasses }) => {
+    // Disconnect route to detail page if one-of-a-kind item is sold
     if (imgClasses.search('sold') !== -1) {
         route = '';
     }

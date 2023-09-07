@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import PageTitle from '../../components/PageTitle';
-import ImgLink from '../../components/ImgLink';
-import { selectNecklaceGallery } from '../../features/necklaces/NecklacesSlice';
+import GalleryColumn from '../../components/GalleryColumn';
+import { selectAllNecklaces } from '../../features/necklaces/NecklacesSlice';
 
 const pageTitle = 'Hand-Painted Necklaces';
 const subTitle = '($20 Each)'
 
 const NecklacesPage = () => {
-    const necklaceGallery = useSelector(selectNecklaceGallery);
+    const necklaceGallery = useSelector(selectAllNecklaces);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -27,24 +27,9 @@ const NecklacesPage = () => {
             {/* Display Gallery */}
             <Container>
                 <Row>
-                    {necklaceGallery.map((column, idx) => {
-                        const { colItems } = column;
-
-                        return (
-                            <Col key={idx} lg='4' className='mb-4 mb-lg-0'>
-                                {colItems.map((item) => {
-                                    const { id, img, desc, imgClasses, captionClasses } = item;
-
-                                    return (
-                                        <ImgLink key={id} route={`/${id}`} src={img}
-                                            altText={desc} caption={desc}
-                                            imgClasses={imgClasses}
-                                            captionClasses={captionClasses} />
-                                    );
-                                })}
-                            </Col>
-                        );
-                    })}
+                    <GalleryColumn gallery={necklaceGallery} start={0} end={2} />
+                    <GalleryColumn gallery={necklaceGallery} start={3} end={5} />
+                    <GalleryColumn gallery={necklaceGallery} start={6} end={8} />
                 </Row>
             </Container>
         </>

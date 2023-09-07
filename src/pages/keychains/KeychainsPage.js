@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import PageTitle from '../../components/PageTitle';
-import ImgLink from '../../components/ImgLink';
-import { selectKeychainGallery } from '../../features/keychains/KeychainsSlice';
+import GalleryColumn from '../../components/GalleryColumn';
+import { selectAllKeychains } from '../../features/keychains/KeychainsSlice';
 
 const pageTitle = 'Handmade Keychains';
 const subTitle = '($15 Each)'
 
 const KeychainsPage = () => {
-    const keychainGallery = useSelector(selectKeychainGallery);
+    const keychainGallery = useSelector(selectAllKeychains);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -27,24 +27,9 @@ const KeychainsPage = () => {
             {/* Display Gallery */}
             <Container>
                 <Row>
-                    {keychainGallery.map((column, idx) => {
-                        const { colItems } = column;
-
-                        return (
-                            <Col key={idx} lg='4' className='mb-4 mb-lg-0'>
-                                {colItems.map((item) => {
-                                    const { id, img, desc, imgClasses, captionClasses } = item;
-
-                                    return (
-                                        <ImgLink key={id} route={`/${id}`} src={img}
-                                            altText={desc} caption={desc}
-                                            imgClasses={imgClasses}
-                                            captionClasses={captionClasses} />
-                                    );
-                                })}
-                            </Col>
-                        );
-                    })}
+                    <GalleryColumn gallery={keychainGallery} start={0} end={2} />
+                    <GalleryColumn gallery={keychainGallery} start={3} end={5} />
+                    <GalleryColumn gallery={keychainGallery} start={6} end={8} />
                 </Row>
             </Container>
         </>

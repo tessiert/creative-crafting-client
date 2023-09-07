@@ -2,14 +2,13 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import PageTitle from '../../components/PageTitle';
-import ImgLink from '../../components/ImgLink';
-// import { HAT_GALLERY } from '../../app/assets/shared/HAT_GALLERY';
-import { selectHatGallery } from '../../features/hats/HatsSlice';
+import GalleryColumn from '../../components/GalleryColumn';
+import { selectAllHats } from '../../features/hats/HatsSlice';
 
 const pageTitle = 'Hand Crochet Hats';
 
 const HatsPage = () => {
-    const hatGallery = useSelector(selectHatGallery);
+    const hatGallery = useSelector(selectAllHats);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -27,24 +26,9 @@ const HatsPage = () => {
             {/* Display Gallery */}
             <Container>
                 <Row>
-                    {hatGallery.map((column, idx) => {
-                        const { colItems } = column;
-
-                        return (
-                            <Col key={idx} lg='4' className='mb-4 mb-lg-0'>
-                                {colItems.map((item) => {
-                                    const {id, img, desc, imgClasses, captionClasses } = item;
-
-                                    return (
-                                        <ImgLink key={id} route={`/${id}`} src={img}
-                                            altText={desc} caption={desc}
-                                            imgClasses={imgClasses}
-                                            captionClasses={captionClasses} />
-                                    );
-                                })}
-                            </Col>
-                        );
-                    })}
+                    <GalleryColumn gallery={hatGallery} start={0} end={2} />
+                    <GalleryColumn gallery={hatGallery} start={3} end={6} />
+                    <GalleryColumn gallery={hatGallery} start={7} end={9} />
                 </Row>
             </Container>
         </>

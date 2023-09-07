@@ -8,9 +8,7 @@ import img007 from '../img/keychains/007_1.jpg';
 import img008 from '../img/keychains/008_1.jpg';
 import img009 from '../img/keychains/009_1.jpg';
 
-export const KEYCHAIN_GALLERY = [
-    {
-        colItems: [
+export const KEYCHAINS = [
             {
                 id: 'keychain001',
                 img: img001,
@@ -28,11 +26,7 @@ export const KEYCHAIN_GALLERY = [
                 img: img003,
                 desc: 'Flower Spiral in Bronze',
                 imgClasses: 'mt-5 mb-4'
-            }
-        ]
-    },
-    {
-        colItems: [
+            },
             {
                 id: 'keychain004',
                 img: img004,
@@ -50,11 +44,7 @@ export const KEYCHAIN_GALLERY = [
                 img: img006,
                 desc: 'Dolphins at the Beach',
                 imgClasses: 'mt-5 mb-4'
-            }
-        ]
-    },
-    {
-        colItems: [
+            },
             {
                 id: 'keychain007',
                 img: img007,
@@ -73,6 +63,4 @@ export const KEYCHAIN_GALLERY = [
                 desc: 'Bright Feather in Bronze',
                 imgClasses: 'mt-5 mb-4'
             }
-        ]
-    }
 ];

@@ -1,5 +1,11 @@
-import { KEYCHAIN_GALLERY } from "../../app/assets/shared/KEYCHAIN_GALLERY";
+import { KEYCHAINS } from "../../app/assets/shared/KEYCHAINS";
 
-export const selectKeychainGallery = () => {
-    return KEYCHAIN_GALLERY;
+export const selectAllKeychains = () => {
+    return KEYCHAINS;
 }
+
+export const selectKeychainById = (id) => {
+    return KEYCHAINS.find(
+        (keychain) => keychain.id === id
+    );
+};
