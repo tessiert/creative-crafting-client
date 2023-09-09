@@ -11,63 +11,83 @@ import img010 from '../img/hats/010_1.jpg';
 
 export const HATS = [
     {
-        id: 'hat001',
+        id: 'Hat-001',
         img: img001,
         desc: 'Black Suede Cloche With Velvet Flower - $40',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 40
     },
     {
-        id: 'hat002',
+        id: 'Hat-002',
         img: img002,
         desc: 'Cream Cotton Cloche With Velvet Flower - $28',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 28
     },
     {
-        id: 'hat003',
+        id: 'Hat-003',
         img: img003,
         desc: 'Brown and White Wool Blend Thick Hat - $35',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 35
     },
     {
-        id: 'hat004',
+        id: 'Hat-004',
         img: img004,
         desc: 'Light Aqua Cotton Cloche - $28',
-        imgClasses: 'mt-0 mb-4'
+        imgClasses: 'mt-0 mb-4',
+        category: 'hats',
+        price: 28
     },
     {
-        id: 'hat005',
+        id: 'Hat-005',
         img: img005,
         desc: 'Oatmeal and Berries Wool Blend Cloche - $35',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 35
     },
     {
-        id: 'hat006',
+        id: 'Hat-006',
         img: img006,
         desc: '"Light Blues" Wool Blend Thick Hat - $35',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 35
     },
     {
-        id: 'hat007',
+        id: 'Hat-007',
         img: img007,
         desc: 'Sage Cotton Cloche With Ribbon - $28',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 28
     },
     {
-        id: 'hat008',
+        id: 'Hat-008',
         img: img008,
         desc: '"Multi Blues" Wool Blend Thick Hat - $35',
-        imgClasses: 'mt-4 mb-4'
+        imgClasses: 'mt-4 mb-4',
+        category: 'hats',
+        price: 35
     },
     {
-        id: 'hat009',
+        id: 'Hat-009',
         img: img009,
         desc: 'Taupe Cotton Cloche With Ribbon - $28',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 28
     },
     {
-        id: 'hat010',
+        id: 'Hat-010',
         img: img010,
         desc: 'White Cotton Cloche With Ribbon - $28',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'hats',
+        price: 28
     }
 ];

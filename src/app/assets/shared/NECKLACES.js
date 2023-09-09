@@ -10,58 +10,76 @@ import img009 from '../img/necklaces/009_1.jpg';
 
 export const NECKLACES = [
     {
-        id: 'necklace001',
+        id: 'Necklace-001',
         img: img001,
         desc: 'Brown Geodes in Silver Square',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace002',
+        id: 'Necklace-002',
         img: img002,
         desc: 'Woman Dancing in Small Stainless Steel',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace003',
+        id: 'Necklace-003',
         img: img003,
         desc: 'Red Seafloor in Silver Circle',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace004',
+        id: 'Necklace-004',
         img: img004,
         desc: 'Blue Geodes in Silver Square',
-        imgClasses: 'mt-0 mb-4'
+        imgClasses: 'mt-0 mb-4',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace005',
+        id: 'Necklace-005',
         img: img005,
         desc: 'Blue Jellyfish in Small Stainless Steel',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace006',
+        id: 'Necklace-006',
         img: img006,
         desc: 'Butterfly Wing in Bronze Flower - Sold',
         imgClasses: 'mt-5 mb-4 sold',
-        captionClasses: 'sold-text'
+        captionClasses: 'sold-text',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace007',
+        id: 'Necklace-007',
         img: img007,
         desc: 'Golden Seafloor in Bronze Circle',
-        imgClasses: 'mt-4 mb-4'
+        imgClasses: 'mt-4 mb-4',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace008',
+        id: 'Necklace-008',
         img: img008,
         desc: 'White Flower in Silver Circle',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'necklaces',
+        price: 20
     },
     {
-        id: 'necklace009',
+        id: 'Necklace-009',
         img: img009,
         desc: 'Purple Sky, White Clouds in Small Stainless Steel',
-        imgClasses: 'mt-5 mb-4'
+        imgClasses: 'mt-5 mb-4',
+        category: 'necklaces',
+        price: 20
     }
 ];

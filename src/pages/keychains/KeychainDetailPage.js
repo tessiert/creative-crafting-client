@@ -1,9 +1,8 @@
 // import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import { selectKeychainById } from '../../features/keychains/KeychainsSlice';
-import KeychainDetail from '../../features/keychains/KeychainDetail';
+import ProductDetail from '../../../src/components/ProductDetail';
 // import CommentsList from '../features/comments/CommentsList';
 
 const pageTitle = 'Handmade Keychains';
@@ -18,7 +17,8 @@ const KeychainDetailPage = () => {
     const keychain = selectKeychainById(keychainId);
 
     return (
-        <KeychainDetail keychain={keychain} />
+        <ProductDetail product={keychain} />
+        // <Reviews product={keychain} />
     )
 };
 

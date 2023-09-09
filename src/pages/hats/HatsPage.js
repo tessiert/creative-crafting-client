@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import PageTitle from '../../components/PageTitle';
 import GalleryColumn from '../../components/GalleryColumn';
 import { selectAllHats } from '../../features/hats/HatsSlice';
