@@ -14,7 +14,7 @@ const NecklaceDescription = ({ product }) => {
                 slight imperfections (such as tiny bubbles) may appear in the
                 resin. This is natural and adds to the uniqueness of each
                 design! We do our best to show these in the pictures. &#128578;**</p>
-            <DescriptionFooter product={product}/>;
+            <DescriptionFooter product={product}/>
         </Col>
     );
 };

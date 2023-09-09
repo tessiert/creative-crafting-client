@@ -6,11 +6,11 @@ import KeychainDescription from "../features/keychains/KeychainDescription";
 import NecklaceDescription from "../features/necklaces/NecklaceDescription";
 
 const ProductDetail = ({ product }) => {
-    const { img, desc, category } = product;
+    const { img, desc, category, price } = product;
 
     return (
         <>
-            <DetailHeader desc={desc} />
+            <DetailHeader desc={desc} price={price} />
             <Container>
                 <Row className="photos">
                     {/* Conditionally render product description based on

@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "reactstrap";
 
-const DetailHeader = ({desc}) => {
+const DetailHeader = ({desc, category, price}) => {
     return (
         <Container>
             <Row className='text-center'>
