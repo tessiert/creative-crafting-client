@@ -152,10 +152,18 @@ footer.jumbotron {
 
 .thumbnail {
   max-width: 150px;
+  object-fit: contain;
 }
 
 .thumbnail-lg {
   max-width: 300px;
+  object-fit: contain;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .back-to-top {
