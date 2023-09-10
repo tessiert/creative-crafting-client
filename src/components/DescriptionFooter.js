@@ -9,7 +9,7 @@ const DescriptionFooter = ({ product }) => {
     return (
         <>
             <p>Thanks for stopping in. Please
-                <Link to='/contact'> contact us </Link>
+                <Link className="text-link" to='/contact'> contact us </Link>
                 with any questions!
             </p>
             <p>Item #: {id}</p>
