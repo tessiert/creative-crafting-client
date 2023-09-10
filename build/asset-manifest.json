@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.233eadfd.css",
+    "main.js": "/static/js/main.3d1a8591.js",
+    "static/media/009_1.jpg": "/static/media/009_1.9ce0cda2e84279b74b4f.jpg",
+    "static/media/005_1.jpg": "/static/media/005_1.b44cc1d41c1a7c6fe33e.jpg",
+    "static/media/004_1.jpg": "/static/media/004_1.b295a76db6fdae1301e8.jpg",
+    "static/media/002_1.jpg": "/static/media/002_1.e9bd0a0381d3f830dc7f.jpg",
+    "static/media/006_1.jpg": "/static/media/006_1.5deb933aaaba8dcfa4a8.jpg",
+    "static/media/008_1.jpg": "/static/media/008_1.9f45378bb17ffd912dca.jpg",
+    "static/media/007_1.jpg": "/static/media/007_1.4a1bd91142b60ea72a00.jpg",
+    "static/media/001_1.jpg": "/static/media/001_1.ad77446f659c3766137f.jpg",
+    "static/media/003_1.jpg": "/static/media/003_1.87888bfda0f80881d73e.jpg",
+    "static/media/about.jpg": "/static/media/about.fc10edcc4a4c82185543.jpg",
+    "static/media/001_2.jpg": "/static/media/001_2.c76860ec6e7ed4ecdd04.jpg",
+    "static/media/001_3.jpg": "/static/media/001_3.c62a18182d0e85d9fd8e.jpg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/order_form.pdf": "/static/media/order_form.25a1f92984d0ec2f0330.pdf",
+    "static/media/hat.webp": "/static/media/hat.438d7ce14a598264208c.webp",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/010_1.jpg": "/static/media/010_1.385d05d767b418742351.jpg",
+    "static/media/logo.png": "/static/media/logo.cab3e0bd4c75ec1d9bd0.png",
+    "static/media/etsy_icon.png": "/static/media/etsy_icon.6633264e2bed5c93a9c0.png",
+    "index.html": "/index.html",
+    "main.233eadfd.css.map": "/static/css/main.233eadfd.css.map",
+    "main.3d1a8591.js.map": "/static/js/main.3d1a8591.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.233eadfd.css",
+    "static/js/main.3d1a8591.js"
+  ]
+}
