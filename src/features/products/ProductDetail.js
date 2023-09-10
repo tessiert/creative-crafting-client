@@ -1,9 +1,9 @@
 import { Container, Row } from "reactstrap";
-import DetailHeader from "./DetailHeader";
-import DetailImage from "./DetailImage";
-import HatDescription from "../features/hats/HatDescription";
-import KeychainDescription from "../features/keychains/KeychainDescription";
-import NecklaceDescription from "../features/necklaces/NecklaceDescription";
+import DetailHeader from "../../components/DetailHeader";
+import DetailImages from "../../components/DetailImages";
+import HatDescription from "../hats/HatDescription";
+import KeychainDescription from "../keychains/KeychainDescription";
+import NecklaceDescription from "../necklaces/NecklaceDescription";
 
 const ProductDetail = ({ product }) => {
     const { img, desc, category, price } = product;
@@ -12,17 +12,17 @@ const ProductDetail = ({ product }) => {
         <>
             <DetailHeader desc={desc} price={price} />
             <Container>
-                <Row className="photos">
+                <Row>
                     {/* Conditionally render product description based on
                     product category */}
-                    <DetailImage img={img} alt={desc} />
-                    { (category === 'hats') &&
+                    <DetailImages img={img} alt={desc} />
+                    {(category === 'hats') &&
                         <HatDescription product={product} />
                     }
-                    { (category === 'keychains') &&
+                    {(category === 'keychains') &&
                         <KeychainDescription product={product} />
                     }
-                    { (category === 'necklaces') &&
+                    {(category === 'necklaces') &&
                         <NecklaceDescription product={product} />
                     }
                 </Row>

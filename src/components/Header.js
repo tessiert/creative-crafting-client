@@ -12,7 +12,8 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownItem,
-    DropdownMenu
+    DropdownMenu,
+    Tooltip
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import SiteLogo from '../app/assets/img/logo.png';
@@ -20,6 +21,7 @@ import orderForm from '../app/assets/docs/order_form.pdf'
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [tooltipOpen, setTooltipOpen] = useState(false);
 
     return (
         <>
@@ -104,8 +106,15 @@ const Header = () => {
                             </a>
                         </NavItem>
                         <NavItem className='navbar-item navbar-right-item position-absolute end-0'>
-                            <NavLink className='nav-link' to='/cart'>
-                                <i className='fa fa-shopping-cart' aria-hidden='true'></i>
+                            <NavLink className='nav-link' to=''>
+                                <i id='cartIcon' className='fa fa-shopping-cart' aria-hidden='true'></i>
+                                <Tooltip
+                                    isOpen={tooltipOpen}
+                                    placement='right'
+                                    target='cartIcon'
+                                    toggle={() => { setTooltipOpen(!tooltipOpen) }}>
+                                    Shopping Cart functionality coming soon!
+                                </Tooltip>
                             </NavLink>
                         </NavItem>
                     </Nav>

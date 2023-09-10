@@ -2,8 +2,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { selectNecklaceById } from '../../features/necklaces/NecklacesSlice';
-import ProductDetail from '../../../src/components/ProductDetail';
-// import CommentsList from '../features/comments/CommentsList';
+import ProductDetail from '../../features/products/ProductDetail';
+import Reviews from '../../components/Reviews';
 
 const pageTitle = 'Hand-Painted Necklaces';
 
@@ -17,8 +17,10 @@ const NecklaceDetailPage = () => {
     const necklace = selectNecklaceById(necklaceId);
 
     return (
-        <ProductDetail product={necklace} />
-        // <Reviews product={necklace} />
+        <>
+            <ProductDetail product={necklace} />
+            <Reviews product={necklace} />
+        </>
     )
 };
 

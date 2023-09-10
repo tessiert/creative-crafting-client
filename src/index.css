@@ -151,7 +151,7 @@ footer.jumbotron {
 }
 
 .thumbnail {
-  max-width: 150px;
+  max-width: 200px;
   object-fit: contain;
 }
 

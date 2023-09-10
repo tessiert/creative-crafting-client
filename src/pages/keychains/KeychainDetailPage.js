@@ -2,8 +2,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { selectKeychainById } from '../../features/keychains/KeychainsSlice';
-import ProductDetail from '../../../src/components/ProductDetail';
-// import CommentsList from '../features/comments/CommentsList';
+import ProductDetail from '../../features/products/ProductDetail';
+import Reviews from '../../components/Reviews';
 
 const pageTitle = 'Handmade Keychains';
 
@@ -17,8 +17,10 @@ const KeychainDetailPage = () => {
     const keychain = selectKeychainById(keychainId);
 
     return (
-        <ProductDetail product={keychain} />
-        // <Reviews product={keychain} />
+        <>
+            <ProductDetail product={keychain} />
+            <Reviews product={keychain} />
+        </>
     )
 };
 

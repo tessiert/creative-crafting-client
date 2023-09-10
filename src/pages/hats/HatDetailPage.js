@@ -2,8 +2,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { selectHatById } from '../../features/hats/HatsSlice';
-import ProductDetail from '../../../src/components/ProductDetail';
-// import CommentsList from '../features/comments/CommentsList';
+import ProductDetail from '../../features/products/ProductDetail';
+import Reviews from '../../components/Reviews';
 
 const pageTitle = 'Hand Crochet Hats';
 
@@ -17,8 +17,10 @@ const HatDetailPage = () => {
     const hat = selectHatById(hatId);
 
     return (
-        <ProductDetail product={hat} />
-        // <Reviews product={hat} />
+        <>
+            <ProductDetail product={hat} />
+            <Reviews product={hat} />
+        </>
     )
 };
 

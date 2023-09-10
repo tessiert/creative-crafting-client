@@ -14,7 +14,7 @@ const GalleryColumn = ({gallery, start, end}) => {
 
 
                 return (
-                    <ImgLink key={id} route={`${id}`} src={img}
+                    <ImgLink key={id} route={`${id}`} src={img[0]}
                         altText={headerText} caption={headerText}
                         imgClasses={imgClasses}
                         captionClasses={captionClasses} />
