@@ -1,5 +1,6 @@
 import { Col } from 'reactstrap';
 import DescriptionFooter from '../../components/DescriptionFooter';
+import smiley from '../../app/assets/img/smiley.png';
 
 const NecklaceDescription = ({ product }) => {
     return (
@@ -13,8 +14,8 @@ const NecklaceDescription = ({ product }) => {
             <p>** Please note that, due to the nature of the materials used,
                 slight imperfections (such as tiny bubbles) may appear in the
                 resin. This is natural and adds to the uniqueness of each
-                design! We do our best to show these in the pictures. &#128578;**</p>
-            <DescriptionFooter product={product}/>
+                design! We do our best to show these in the pictures. <img className='emoji text-center' src={smiley} alt='Smiley Face Emoji' />**</p>
+            <DescriptionFooter product={product} />
         </Col>
     );
 };

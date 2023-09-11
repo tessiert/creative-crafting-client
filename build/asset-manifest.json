@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.233eadfd.css",
-    "main.js": "/static/js/main.3d1a8591.js",
+    "main.css": "/static/css/main.2292c816.css",
+    "main.js": "/static/js/main.04efa0b6.js",
     "static/media/009_1.jpg": "/static/media/009_1.9ce0cda2e84279b74b4f.jpg",
     "static/media/005_1.jpg": "/static/media/005_1.b44cc1d41c1a7c6fe33e.jpg",
     "static/media/004_1.jpg": "/static/media/004_1.b295a76db6fdae1301e8.jpg",
@@ -21,15 +21,16 @@
     "static/media/hat.webp": "/static/media/hat.438d7ce14a598264208c.webp",
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/smiley.png": "/static/media/smiley.6d241eed0c465fe5cbe0.png",
     "static/media/010_1.jpg": "/static/media/010_1.385d05d767b418742351.jpg",
     "static/media/logo.png": "/static/media/logo.cab3e0bd4c75ec1d9bd0.png",
     "static/media/etsy_icon.png": "/static/media/etsy_icon.6633264e2bed5c93a9c0.png",
     "index.html": "/index.html",
-    "main.233eadfd.css.map": "/static/css/main.233eadfd.css.map",
-    "main.3d1a8591.js.map": "/static/js/main.3d1a8591.js.map"
+    "main.2292c816.css.map": "/static/css/main.2292c816.css.map",
+    "main.04efa0b6.js.map": "/static/js/main.04efa0b6.js.map"
   },
   "entrypoints": [
-    "static/css/main.233eadfd.css",
-    "static/js/main.3d1a8591.js"
+    "static/css/main.2292c816.css",
+    "static/js/main.04efa0b6.js"
   ]
 }

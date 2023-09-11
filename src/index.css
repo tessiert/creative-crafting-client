@@ -214,3 +214,8 @@ footer.jumbotron {
 .sold-text {
   color: red;
 }
+
+.emoji {
+  height: 28px;
+  width: 28px;
+}
