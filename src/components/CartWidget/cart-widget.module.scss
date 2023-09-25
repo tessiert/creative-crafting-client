@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  border: none;
+  background: none;
+  position: relative;
+
+  .shoppingCart {
+    color: white;
+    position: absolute;
+    top: 15px;
+  }
+
+  .numItems {
+    color: white;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+  }
+}
