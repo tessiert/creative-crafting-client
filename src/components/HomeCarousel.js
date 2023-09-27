@@ -33,8 +33,8 @@ function HomeCarousel(args) {
   };
 
   // const goToIndex = (newIndex) => {
-  //     if (animating) return;
-  //     setActiveIndex(newIndex);
+  //   if (animating) return;
+  //   setActiveIndex(newIndex);
   // };
 
   const playToggle = () => {
