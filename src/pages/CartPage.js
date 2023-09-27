@@ -3,6 +3,7 @@ import PageTitle from '../components/PageTitle';
 import ShoppingCart from '../components/Cart/ShoppingCart';
 
 const pageTitle = 'Your Cart';
+const subTitle = '**Free Shipping on Orders of $35 or More**'
 
 const CartPage = () => {
 
@@ -17,7 +18,7 @@ const CartPage = () => {
 
   return (
     <>
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle} subTitle={subTitle} />
       <ShoppingCart />
     </>
   );
