@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import useLocalStorageState from 'use-local-storage-state';
 
 const DescriptionFooter = ({ product }) => {
   const { id, price } = product;
-  const [cart, setCart] = useLocalStorageState('cart', {})
+  const [cart, setCart] = useLocalStorageState('cart', {});
+  const [modalOpen, setModalOpen] = useState(false);
 
   const addToCart = (product) => {
     product.quantity = 1;
@@ -13,6 +15,8 @@ const DescriptionFooter = ({ product }) => {
       ...prevCart,
       [product.id]: product,
     }));
+    setModalOpen(true);
+
   }
 
   const isInCart = (productId) => Object.keys(cart || {}).includes(productId);
@@ -33,6 +37,12 @@ const DescriptionFooter = ({ product }) => {
       >
         Add to Cart
       </Button>
+      <Modal isOpen={modalOpen}>
+        <ModalHeader toggle={() => setModalOpen(false)} />
+        <ModalBody>
+          <p className='text-center'>Item successfully added to cart!</p>
+        </ModalBody>
+      </Modal>
     </>
   );
 };
