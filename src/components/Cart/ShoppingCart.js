@@ -1,4 +1,5 @@
 import { Container, Row, Col, Button, Tooltip } from 'reactstrap';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
 import classes from './shopping-cart.module.scss';
@@ -74,23 +75,33 @@ const ShoppingCart = () => {
         </div>
         <Price shipping={shippingPrice} total={totalPrice} />
       </section>
-      <Container style={{ display: "flex" }}>
-        <Button
-          id='checkoutBtn'
-          className="btn btn-success mt-4 mb-5"
-          style={{ margin: "auto" }}
-        // onClick={() => {}}
-        >
-          Checkout
-        </Button>
-        <Tooltip
+      <div id='checkoutBtn' className='mt-4 mb-5'
+        style={{
+          width: "300px",
+          margin: 'auto'
+        }}
+      >
+        <PayPalScriptProvider
+          options={
+            {
+              "client-id": "test",
+              disableFunding: 'venmo',
+              components: "buttons",
+              currency: "USD"
+            }
+          }>
+          <PayPalButtons
+            style={{ layout: "vertical", disableMaxWidth: true, maxWidth: '750px' }} />
+        </PayPalScriptProvider>
+
+        {/* <Tooltip
           isOpen={tooltipOpen}
           placement='right'
           target='checkoutBtn'
           toggle={() => { setTooltipOpen(!tooltipOpen) }}>
           Secure payment support coming soon!
-        </Tooltip>
-      </Container>
+        </Tooltip> */}
+      </div>
     </>
   );
 }
