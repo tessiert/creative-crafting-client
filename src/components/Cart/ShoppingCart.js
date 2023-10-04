@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Tooltip } from 'reactstrap';
+import { Container, Row, Col, Tooltip } from 'reactstrap';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
@@ -94,13 +94,13 @@ const ShoppingCart = () => {
             style={{ layout: "vertical", disableMaxWidth: true, maxWidth: '750px' }} />
         </PayPalScriptProvider>
 
-        {/* <Tooltip
+        <Tooltip
           isOpen={tooltipOpen}
           placement='right'
           target='checkoutBtn'
           toggle={() => { setTooltipOpen(!tooltipOpen) }}>
           Secure payment support coming soon!
-        </Tooltip> */}
+        </Tooltip>
       </div>
     </>
   );

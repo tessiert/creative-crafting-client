@@ -55,39 +55,47 @@ footer.jumbotron {
   text-transform: capitalize;
 }
 
-.carousel-caption {
-  color: black;
-  left: 1%;
-  text-align: left;
-  max-width: 250px;
-  right: auto;
-  bottom: 0;
-  padding: 5px;
-}
-
 .carousel {
   border: solid saddlebrown;
   border-width: 8px;
   border-radius: 8px;
 }
 
-.carousel-control-next,
-.carousel-control-prev {
-  filter: invert(100%);
+.carousel-control {
+  border: none;
+  opacity: 70%;
+}
+
+.carousel-control:hover {
+  opacity: 100%
 }
 
 #homeCarouselImg {
   object-fit: cover;
   object-position: center;
-  height: 90vh;
+  height: 80vh;
   overflow: hidden;
+}
+
+.slide-container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+/* Bottom left text */
+.slide-caption {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
 }
 
 #carouselButton {
   position: absolute;
   right: 0;
   bottom: 0;
-  z-index: 100;
+  margin-right: 8px;
+  margin-bottom: 8px;
 }
 
 .gallery-header {
