@@ -31,7 +31,7 @@ function HomeCarousel() {
 
   const slides = carouselItems.map((item) => {
     return (
-      <div className='slide-container'>
+      <div key={item.caption} className='slide-container'>
         <img id='homeCarouselImg' className='d-block w-100' src={item.src} alt={item.altText} />
         <div className='slide-caption'>{item.caption}</div>
       </div>

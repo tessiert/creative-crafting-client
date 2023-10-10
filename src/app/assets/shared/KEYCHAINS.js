@@ -9,76 +9,76 @@ import img008 from '../img/keychains/008_1.jpg';
 import img009 from '../img/keychains/009_1.jpg';
 
 export const KEYCHAINS = [
-    {
-        id: 'Keychain-001',
-        img: [img001],
-        desc: 'Red Rose in Black Wood',
-        imgClasses: 'mt-5 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-002',
-        img: [img002],
-        desc: 'Seahorse in Natural Wood',
-        imgClasses: 'mt-5 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-003',
-        img: [img003],
-        desc: 'Flower Spiral in Bronze',
-        imgClasses: 'mt-5 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-004',
-        img: [img004],
-        desc: 'Girl With Dandelion and Cat in Silver',
-        imgClasses: 'mt-0 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-005',
-        img: [img005],
-        desc: 'Butterfly in Black Wood',
-        imgClasses: 'mt-5 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-006',
-        img: [img006],
-        desc: 'Dolphins at the Beach',
-        imgClasses: 'mt-5 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-007',
-        img: [img007],
-        desc: 'Sea Witch in Bronze - 1.25 inch (30mm), glass dome',
-        imgClasses: 'mt-4 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-008',
-        img: [img008],
-        desc: 'Autumn Leaves in Copper',
-        imgClasses: 'mt-5 mb-4',
-        category: 'keychains',
-        price: 15
-    },
-    {
-        id: 'Keychain-009',
-        img: [img009],
-        desc: 'Bright Feather in Bronze',
-        imgClasses: 'mt-5 mb-4',
-        category: 'keychains',
-        price: 15
-    }
+  {
+    id: 'Keychain-001',
+    img: [img001],
+    desc: 'Red Rose in Black Wood',
+    imgClasses: 'mt-5 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-002',
+    img: [img002],
+    desc: 'Seahorse in Natural Wood',
+    imgClasses: 'mt-5 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-003',
+    img: [img003],
+    desc: 'Flower Spiral in Bronze',
+    imgClasses: 'mt-5 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-004',
+    img: [img004],
+    desc: 'Girl With Dandelion and Cat in Silver',
+    imgClasses: 'mt-0 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-005',
+    img: [img005],
+    desc: 'Butterfly in Black Wood',
+    imgClasses: 'mt-5 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-006',
+    img: [img006],
+    desc: 'Dolphins at the Beach',
+    imgClasses: 'mt-5 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-007',
+    img: [img007],
+    desc: 'Sea Witch in Bronze - 1.25 inch (30mm), glass dome',
+    imgClasses: 'mt-4 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-008',
+    img: [img008],
+    desc: 'Autumn Leaves in Copper',
+    imgClasses: 'mt-5 mb-4',
+    category: 'Keychain',
+    price: 15
+  },
+  {
+    id: 'Keychain-009',
+    img: [img009],
+    desc: 'Bright Feather in Bronze',
+    imgClasses: 'mt-5 mb-4',
+    category: 'Keychain',
+    price: 15
+  }
 ];

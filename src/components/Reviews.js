@@ -1,22 +1,29 @@
-import { Container, Row, Col, Card, CardHeader, CardBody, CardText } from 'reactstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardHeader,
+  CardBody
+} from 'reactstrap';
+import ReviewsList from '../features/reviews/ReviewsList';
 
-const Reviews = (product) => {
-    return (
-        <Container>
-            <Row>
-                <Col>
-                    <Card className="text-center mt-3 mb-5">
-                        <CardHeader>Reviews</CardHeader>
-                        <CardBody>
-                            <CardText>
-                                This item does not yet have any reviews.
-                            </CardText>
-                        </CardBody>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
-    );
+const Reviews = ({ category }) => {
+
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <Card className="mt-3 mb-5">
+            <CardHeader className='text-center'><h2>{category} Reviews</h2></CardHeader>
+            <CardBody>
+              <ReviewsList category={category} />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default Reviews;
