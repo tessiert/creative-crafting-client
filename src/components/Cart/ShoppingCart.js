@@ -1,6 +1,5 @@
-import { Container, Row, Col, Tooltip } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useState } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
 import classes from './shopping-cart.module.scss';
 import QuantityAdjuster from '../QuantityAdjuster/QuantityAdjuster';
@@ -8,11 +7,11 @@ import Price from './Price/Price';
 import CurrencyFormatter from './CurrencyFormatter/CurrencyFormatter';
 import CartImgLink from './CartImgLink';
 
+const flatRateShipping = 5;
 const freeShippingThresh = 35;
 
 const ShoppingCart = () => {
   const [cart, setCart] = useLocalStorageState('cart', {});
-  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const handleRemoveProduct = (productId) => {
     setCart((prevCart) => {
@@ -36,17 +35,68 @@ const ShoppingCart = () => {
           updatedCart[productId] = { ...updatedCart[productId], quantity: qty };
         }
       }
+      console.log(updatedCart)
       return updatedCart;
     });
   }
-
 
   const getProducts = () => Object.values(cart || {});
 
   let cartPrice =
     getProducts().reduce((accumulator, product) => accumulator + (product.price * product.quantity), 0);
-  let shippingPrice = (cartPrice === 0 || cartPrice >= freeShippingThresh) ? 0 : 5;
+  let shippingPrice = (cartPrice === 0 || cartPrice >= freeShippingThresh) ? 0 : flatRateShipping;
   let totalPrice = cartPrice + shippingPrice;
+
+  const createOrder = (data, actions) => {
+    const itemList = getProducts();
+    const items = [];
+
+    for (const item of itemList) {
+      items.push({
+        name: item.desc,
+        quantity: item.quantity.toString(),
+        sku: item.id,
+        unit_amount: {
+          "currency_code": "USD",
+          "value": item.price.toString()
+        }
+      })
+    }
+    console.log(items);
+
+    return actions.order.create({
+      purchase_units: [
+        {
+          "description": 'Payment to Creative Crafting',
+          "items": items,
+          "amount": {
+            "currency_code": "USD",
+            "value": totalPrice.toString(),
+            "breakdown": {
+              "item_total": {
+                "currency_code": "USD",
+                "value": cartPrice.toString()
+              },
+              "shipping": {
+                "currency_code": "USD",
+                "value": flatRateShipping.toString()
+              },
+              "shipping_discount": {
+                "currency_code": "USD",
+                "value": (cartPrice >= freeShippingThresh) ? flatRateShipping.toString() : 0
+              }
+            }
+          }
+        }
+      ],
+      intent: 'CAPTURE'
+    });
+  }
+
+  async function onApprove(data, actions) {
+    const order = await actions.order.capture();
+    console.log("order", order);
+  }
 
   return (
     <>
@@ -62,8 +112,10 @@ const ShoppingCart = () => {
                 <Col lg='3'>
                   <QuantityAdjuster
                     removeProductCallback={() => handleRemoveProduct(product.id)}
+                    handleUpdateQuantity={handleUpdateQuantity}
                     productId={product.id}
-                    handleUpdateQuantity={handleUpdateQuantity} />
+                    qty={product.quantity}
+                  />
                 </Col>
                 <Col style={{ textAlign: 'left' }}>
                   {product.desc}
@@ -85,22 +137,16 @@ const ShoppingCart = () => {
           options={
             {
               "client-id": "test",
-              disableFunding: 'venmo',
               components: "buttons",
               currency: "USD"
             }
           }>
           <PayPalButtons
-            style={{ layout: "vertical", disableMaxWidth: true, maxWidth: '750px' }} />
+            style={{ layout: "vertical", disableMaxWidth: true, maxWidth: '750px' }}
+            createOrder={createOrder}
+            onApprove={onApprove}
+          />
         </PayPalScriptProvider>
-
-        <Tooltip
-          isOpen={tooltipOpen}
-          placement='right'
-          target='checkoutBtn'
-          toggle={() => { setTooltipOpen(!tooltipOpen) }}>
-          Secure payment support coming soon!
-        </Tooltip>
       </div>
     </>
   );

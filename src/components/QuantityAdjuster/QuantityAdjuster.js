@@ -3,8 +3,8 @@ import classes from './quantity-adjuster.module.scss';
 
 const maxQty = 5;
 
-const QuantityAdjuster = ({ removeProductCallback, handleUpdateQuantity, productId }) => {
-  const [value, setValue] = useState(1);
+const QuantityAdjuster = ({ removeProductCallback, handleUpdateQuantity, productId, qty }) => {
+  const [value, setValue] = useState(qty);
 
   const reduce = () => {
     handleUpdateQuantity(productId, 'decrement');
