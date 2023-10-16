@@ -15,7 +15,8 @@ export const NECKLACES = [
     desc: 'Brown Geodes in Silver Square',
     imgClasses: 'mt-5 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-002',
@@ -23,7 +24,8 @@ export const NECKLACES = [
     desc: 'Woman Dancing in Small Stainless Steel',
     imgClasses: 'mt-5 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-003',
@@ -31,7 +33,8 @@ export const NECKLACES = [
     desc: 'Red Seafloor in Silver Circle',
     imgClasses: 'mt-5 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-004',
@@ -39,7 +42,8 @@ export const NECKLACES = [
     desc: 'Blue Geodes in Silver Square',
     imgClasses: 'mt-0 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-005',
@@ -47,7 +51,8 @@ export const NECKLACES = [
     desc: 'Blue Jellyfish in Small Stainless Steel',
     imgClasses: 'mt-5 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-006',
@@ -56,7 +61,8 @@ export const NECKLACES = [
     imgClasses: 'mt-5 mb-4 sold',
     captionClasses: 'sold-text',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-007',
@@ -64,7 +70,8 @@ export const NECKLACES = [
     desc: 'Golden Seafloor in Bronze Circle',
     imgClasses: 'mt-4 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-008',
@@ -72,7 +79,8 @@ export const NECKLACES = [
     desc: 'White Flower in Silver Circle',
     imgClasses: 'mt-5 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   },
   {
     id: 'Necklace-009',
@@ -80,6 +88,7 @@ export const NECKLACES = [
     desc: 'Purple Sky, White Clouds in Small Stainless Steel',
     imgClasses: 'mt-5 mb-4',
     category: 'Necklace',
-    price: 20
+    price: 20,
+    oneOfAKind: true
   }
 ];

@@ -13,7 +13,6 @@ import {
   DropdownToggle,
   DropdownItem,
   DropdownMenu,
-  Tooltip
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import useLocalStorageState from 'use-local-storage-state';
@@ -24,7 +23,6 @@ import CartWidget from './CartWidget/CartWidget';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [tooltipOpen, setTooltipOpen] = useState(false);
   const [cart,] = useLocalStorageState('cart', {});
   const getProducts = () => Object.values(cart || {});
   const numItems = getProducts().reduce((accumulator, product) => accumulator + product.quantity, 0);
@@ -106,15 +104,7 @@ const Header = () => {
             </NavItem>
             <NavItem className='navbar-item navbar-right-item position-absolute end-0'>
               <NavLink className='nav-link' to='/cart'>
-                {/* <i id='cartIcon' className='fa fa-shopping-cart' aria-hidden='true'></i> */}
                 <CartWidget numItems={numItems} />
-                {/* <Tooltip
-                  isOpen={tooltipOpen}
-                  placement='right'
-                  target='cartIcon'
-                  toggle={() => { setTooltipOpen(!tooltipOpen) }}>
-                  Shopping Cart functionality coming soon!
-                </Tooltip> */}
               </NavLink>
             </NavItem>
           </Nav>

@@ -15,7 +15,8 @@ export const KEYCHAINS = [
     desc: 'Red Rose in Black Wood',
     imgClasses: 'mt-5 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-002',
@@ -23,7 +24,8 @@ export const KEYCHAINS = [
     desc: 'Seahorse in Natural Wood',
     imgClasses: 'mt-5 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-003',
@@ -31,7 +33,8 @@ export const KEYCHAINS = [
     desc: 'Flower Spiral in Bronze',
     imgClasses: 'mt-5 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-004',
@@ -39,7 +42,8 @@ export const KEYCHAINS = [
     desc: 'Girl With Dandelion and Cat in Silver',
     imgClasses: 'mt-0 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-005',
@@ -47,7 +51,8 @@ export const KEYCHAINS = [
     desc: 'Butterfly in Black Wood',
     imgClasses: 'mt-5 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-006',
@@ -55,7 +60,8 @@ export const KEYCHAINS = [
     desc: 'Dolphins at the Beach',
     imgClasses: 'mt-5 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-007',
@@ -63,7 +69,8 @@ export const KEYCHAINS = [
     desc: 'Sea Witch in Bronze - 1.25 inch (30mm), glass dome',
     imgClasses: 'mt-4 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-008',
@@ -71,7 +78,8 @@ export const KEYCHAINS = [
     desc: 'Autumn Leaves in Copper',
     imgClasses: 'mt-5 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   },
   {
     id: 'Keychain-009',
@@ -79,6 +87,7 @@ export const KEYCHAINS = [
     desc: 'Bright Feather in Bronze',
     imgClasses: 'mt-5 mb-4',
     category: 'Keychain',
-    price: 15
+    price: 15,
+    oneOfAKind: true
   }
 ];

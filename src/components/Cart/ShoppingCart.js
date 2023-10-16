@@ -1,4 +1,5 @@
-import { Container, Row, Col } from 'reactstrap';
+import { useState } from 'react';
+import { Container, Row, Col, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import useLocalStorageState from 'use-local-storage-state';
 import classes from './shopping-cart.module.scss';
@@ -7,11 +8,19 @@ import Price from './Price/Price';
 import CurrencyFormatter from './CurrencyFormatter/CurrencyFormatter';
 import CartImgLink from './CartImgLink';
 
-const flatRateShipping = 5;
-const freeShippingThresh = 35;
+const FLATRATESHIPPING = 5;
+const FREESHIPPINGTHRESH = 35;
 
 const ShoppingCart = () => {
   const [cart, setCart] = useLocalStorageState('cart', {});
+  const [paidModalOpen, setPaidModalOpen] = useState(false);
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [error, setError] = useState(null);
+
+  const isObjectEmpty = (obj) => {
+    return JSON.stringify(obj) === '{}';
+  }
 
   const handleRemoveProduct = (productId) => {
     setCart((prevCart) => {
@@ -35,7 +44,7 @@ const ShoppingCart = () => {
           updatedCart[productId] = { ...updatedCart[productId], quantity: qty };
         }
       }
-      console.log(updatedCart)
+
       return updatedCart;
     });
   }
@@ -44,8 +53,14 @@ const ShoppingCart = () => {
 
   let cartPrice =
     getProducts().reduce((accumulator, product) => accumulator + (product.price * product.quantity), 0);
-  let shippingPrice = (cartPrice === 0 || cartPrice >= freeShippingThresh) ? 0 : flatRateShipping;
+  let shippingPrice = (cartPrice === 0 || cartPrice >= FREESHIPPINGTHRESH) ? 0 : FLATRATESHIPPING;
   let totalPrice = cartPrice + shippingPrice;
+
+  const handleApprove = (order) => {
+    console.log(order);
+    setCustomerEmail(order.payer.email_address);
+    setPaidModalOpen(true);
+  };
 
   const createOrder = (data, actions) => {
     const itemList = getProducts();
@@ -62,7 +77,6 @@ const ShoppingCart = () => {
         }
       })
     }
-    console.log(items);
 
     return actions.order.create({
       purchase_units: [
@@ -79,11 +93,11 @@ const ShoppingCart = () => {
               },
               "shipping": {
                 "currency_code": "USD",
-                "value": flatRateShipping.toString()
+                "value": FLATRATESHIPPING.toString()
               },
               "shipping_discount": {
                 "currency_code": "USD",
-                "value": (cartPrice >= freeShippingThresh) ? flatRateShipping.toString() : 0
+                "value": (cartPrice >= FREESHIPPINGTHRESH) ? FLATRATESHIPPING.toString() : 0
               }
             }
           }
@@ -95,7 +109,14 @@ const ShoppingCart = () => {
 
   async function onApprove(data, actions) {
     const order = await actions.order.capture();
-    console.log("order", order);
+    handleApprove(order);
+  }
+
+  const onError = (err) => {
+    setError(
+      'PayPal is reporting a transaction error.  If you continue to receive this message, please contact us for assistance.');
+    setErrorModalOpen(true);
+
   }
 
   return (
@@ -110,12 +131,14 @@ const ShoppingCart = () => {
                     src={product.img[0]} alt={product.desc} />
                 </Col>
                 <Col lg='3'>
-                  <QuantityAdjuster
-                    removeProductCallback={() => handleRemoveProduct(product.id)}
-                    handleUpdateQuantity={handleUpdateQuantity}
-                    productId={product.id}
-                    qty={product.quantity}
-                  />
+                  {(product.oneOfAKind) ?
+                    <p>One of a Kind</p> :
+                    <QuantityAdjuster
+                      removeProductCallback={() => handleRemoveProduct(product.id)}
+                      handleUpdateQuantity={handleUpdateQuantity}
+                      productId={product.id}
+                      qty={product.quantity}
+                    />}
                 </Col>
                 <Col style={{ textAlign: 'left' }}>
                   {product.desc}
@@ -127,27 +150,53 @@ const ShoppingCart = () => {
         </div>
         <Price shipping={shippingPrice} total={totalPrice} />
       </section>
-      <div id='checkoutBtn' className='mt-4 mb-5'
-        style={{
-          width: "300px",
-          margin: 'auto'
+      {!isObjectEmpty(cart) &&
+        <div id='checkoutBtn' className='mt-4 mb-5'
+          style={{
+            width: "300px",
+            margin: 'auto'
+          }}
+        >
+          <PayPalScriptProvider
+            options={
+              {
+                "client-id": "test",
+                components: "buttons",
+                currency: "USD"
+              }
+            }>
+            <PayPalButtons
+              style={{ layout: "vertical", disableMaxWidth: true, maxWidth: '750px' }}
+              createOrder={createOrder}
+              onApprove={onApprove}
+              onError={onError}
+            />
+          </PayPalScriptProvider>
+        </div>
+      }
+      <Modal isOpen={paidModalOpen}>
+        <ModalHeader toggle={() => {
+          setPaidModalOpen(false)
+          setCart({})
         }}
-      >
-        <PayPalScriptProvider
-          options={
-            {
-              "client-id": "test",
-              components: "buttons",
-              currency: "USD"
-            }
-          }>
-          <PayPalButtons
-            style={{ layout: "vertical", disableMaxWidth: true, maxWidth: '750px' }}
-            createOrder={createOrder}
-            onApprove={onApprove}
-          />
-        </PayPalScriptProvider>
-      </div>
+        />
+        <ModalBody>
+          <p className='text-center'>Thank you for your purchase!  A confirmation
+            email is being sent to {customerEmail}.
+          </p>
+        </ModalBody>
+      </Modal>
+      <Modal isOpen={errorModalOpen}>
+        <ModalHeader toggle={() => {
+          setErrorModalOpen(false)
+        }}
+        />
+        <ModalBody>
+          <p className='text-center'>
+            {error}
+          </p>
+        </ModalBody>
+      </Modal>
     </>
   );
 }
