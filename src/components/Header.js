@@ -96,12 +96,12 @@ const Header = () => {
                 Contact
               </NavLink>
             </NavItem>
-            <NavItem className='navbar-item navbar-right-item'>
+            {/* <NavItem className='navbar-item navbar-right-item'>
               <a className='nav-link'
                 href={orderForm} target='_blank' rel='noreferrer'>
                 Orders
               </a>
-            </NavItem>
+            </NavItem> */}
             <NavItem className='navbar-item navbar-right-item position-absolute end-0'>
               <NavLink className='nav-link' to='/cart'>
                 <CartWidget numItems={numItems} />
