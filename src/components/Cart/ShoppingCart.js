@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Container, Row, Col, Modal, ModalHeader, ModalBody, Spinner } from 'reactstrap';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import useLocalStorageState from 'use-local-storage-state';
 import classes from './shopping-cart.module.scss';
@@ -57,7 +57,6 @@ const ShoppingCart = () => {
   let totalPrice = cartPrice + shippingPrice;
 
   const handleApprove = (order) => {
-    console.log(order);
     setCustomerEmail(order.payer.email_address);
     setPaidModalOpen(true);
   };
@@ -183,17 +182,6 @@ const ShoppingCart = () => {
         <ModalBody>
           <p className='text-center'>Thank you for your purchase!  A confirmation
             email is being sent to {customerEmail}.
-          </p>
-        </ModalBody>
-      </Modal>
-      <Modal isOpen={errorModalOpen}>
-        <ModalHeader toggle={() => {
-          setErrorModalOpen(false)
-        }}
-        />
-        <ModalBody>
-          <p className='text-center'>
-            {error}
           </p>
         </ModalBody>
       </Modal>
