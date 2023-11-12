@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from 'react-scroll-to-top';
@@ -15,9 +17,16 @@ import HomePage from './pages/HomePage';
 import ShippingPage from './pages/ShippingPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { fetchReviews } from './features/reviews/reviewsSlice';
 // import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <ScrollToTop top={300} />
