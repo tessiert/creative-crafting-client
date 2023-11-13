@@ -17,7 +17,7 @@ import HomePage from './pages/HomePage';
 import ShippingPage from './pages/ShippingPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { fetchReviews } from './features/reviews/reviewsSlice';
+import { fetchReviews, addReview } from './features/reviews/reviewsSlice';
 // import './App.css';
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchReviews());
+    dispatch(addReview());
   }, [dispatch]);
 
   return (

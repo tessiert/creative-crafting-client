@@ -13,6 +13,33 @@ export const fetchReviews = createAsyncThunk(
   }
 );
 
+// post a new review
+export const addReview = createAsyncThunk(
+  'reviews/addReview',
+  async (review) => {
+    // const bearer = 'Bearer ' + localStorage.getItem('token');
+
+    const response = await fetch(
+      baseUrl + 'reviews',
+      {
+        method: 'POST',
+        headers: {
+          // Authorization: bearer,
+          'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify(review)
+      }
+    );
+    if (!response.ok) {
+      return Promise.reject(response.status);
+    }
+    const data = await response.json();
+    console.log('data:', data);
+    return data;
+  }
+);
+
 const initialState = {
   reviewsArray: [],
   isLoading: true,
@@ -35,6 +62,16 @@ const reviewsSlice = createSlice({
     [fetchReviews.rejected]: (state, action) => {
       state.isLoading = false;
       state.errMsg = action.error ? action.error.message : 'Fetch of reviews failed';
+    },
+    [addReview.fulfilled]: (state, action) => {
+      const newReview = action.payload;
+      state.reviewsArray.push(newReview);
+    },
+    [addReview.rejected]: (state, action) => {
+      alert(
+        'Your review could not be posted\nError: ' +
+        (action.error ? action.error.message : 'Fetch failed')
+      );
     }
   }
 });
@@ -46,47 +83,8 @@ export const selectAllReviews = (state) => {
 };
 
 export const selectReviewsByCategory = (category) => (state) => {
-  return state.reviews.reviewsArray.filter(
+  const review = state.reviews.reviewsArray.filter(
     (review) => review.category === category
   );
+  return review;
 };
-
-// import { createSlice } from '@reduxjs/toolkit';
-// import { REVIEWS } from '../../app/assets/shared/REVIEWS';
-
-// const initialState = {
-//   reviewsArray: REVIEWS
-// };
-
-// const reviewsSlice = createSlice({
-//   name: 'reviews',
-//   initialState,
-//   reducers: {
-//     addReview: (state, action) => {
-//       console.log('addReview action.payload:', action.payload);
-//       console.log('addReview state.reviewsArray:', state.reviewsArray);
-//       const newReview = {
-//         id: state.reviewsArray.length + 1,
-//         ...action.payload
-//       };
-//       state.reviewsArray.push(newReview);
-//     }
-//   }
-// });
-
-// export const reviewsReducer = reviewsSlice.reducer;
-
-// export const { addReview } = reviewsSlice.actions;
-
-// export const selectReviewsByCategory = (category) => (state) => {
-//   return state.reviews.reviewsArray.filter(
-//     (review) => review.category === category
-//   );
-// };
-
-// export const selectReviewsByCategory = (category) => {
-//   return REVIEWS.filter(
-//     (review) => review.category === category
-//   );
-// };
-

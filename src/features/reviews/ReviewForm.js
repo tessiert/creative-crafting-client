@@ -3,11 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { Button, Modal, ModalHeader, FormGroup, Label } from 'reactstrap';
 import { validateReviewForm } from '../../utils/validateReviewForm';
-// import { addReview } from './reviewsSlice';
+import { addReview } from './reviewsSlice';
 
 const ReviewForm = ({ category }) => {
   const [modalOpen, setModalOpen] = useState(false);
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
@@ -17,8 +16,8 @@ const ReviewForm = ({ category }) => {
       text: values.reviewText,
       date: new Date(Date.now()).toISOString()
     };
-    console.log('review:', review);
-    // dispatch(addReview(review));
+
+    dispatch(addReview(review));
     setModalOpen(false);
   };
 
