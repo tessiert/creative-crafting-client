@@ -21,6 +21,7 @@ import UserLoginForm from '../features/user/UserLoginForm';
 import UserSignupForm from '../features/user/UserSignupForm';
 import UserAvatar from '../features/user/UserAvatar';
 import {
+  getFirstname,
   isAuthenticated,
   userLogout,
   validateLogin
@@ -32,6 +33,7 @@ import CartWidget from './CartWidget/CartWidget';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const auth = useSelector(isAuthenticated);
+  const firstname = useSelector(getFirstname);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,7 +59,7 @@ const Header = () => {
           <i className='fa fa-sign-out fa-lg' /> Logout
         </Button>
       </span>
-      <UserAvatar />
+      <UserAvatar firstname={firstname} />
     </>
   ) : (
     <>

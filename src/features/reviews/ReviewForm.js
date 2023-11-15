@@ -33,7 +33,7 @@ const ReviewForm = ({ category }) => {
       <Button
         id='reviewButton'
         outline
-        hidden={!auth}
+        disabled={!auth}
         onClick={() => auth && setModalOpen(true)}
       >
         <i className='fa fa-pencil fa-lg' /> Review Item

@@ -1,7 +1,7 @@
-const UserAvatar = () => {
+const UserAvatar = ({ firstname }) => {
   return (
     <div className='capitalize avatar'>
-      Welcome, trace
+      Welcome, {firstname}
     </div>
   );
 };
