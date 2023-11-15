@@ -31,10 +31,9 @@ const ReviewForm = ({ category }) => {
   return (
     <>
       <Button
-        id='reviewButton'
+        id='newReviewBtn'
         outline
-        disabled={!auth}
-        onClick={() => auth && setModalOpen(true)}
+        onClick={() => auth ? setModalOpen(true) : alert('Please log in to leave a review.')}
       >
         <i className='fa fa-pencil fa-lg' /> Review Item
       </Button>
