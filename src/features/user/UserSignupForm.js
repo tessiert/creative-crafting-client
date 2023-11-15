@@ -31,7 +31,7 @@ const UserSignupForm = () => {
 
   return (
     <>
-      <span className='navbar-text ml-auto'>
+      <span className='navbar-text navbar-item ml-auto'>
         <Button
           outline
           onClick={() => setSignupModalOpen(true)}

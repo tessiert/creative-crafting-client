@@ -227,3 +227,8 @@ footer.jumbotron {
   height: 28px;
   width: 28px;
 }
+
+.avatar {
+  color: white;
+  margin-left: 10px;
+}
