@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { Button, Modal, ModalHeader, FormGroup, Label } from 'reactstrap';
 import { validateReviewForm } from '../../utils/validateReviewForm';
+import { isAuthenticated } from '../user/userSlice';
 import { addReview } from './reviewsSlice';
 
 const ReviewForm = ({ category }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const auth = useSelector(isAuthenticated);
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
@@ -28,7 +30,12 @@ const ReviewForm = ({ category }) => {
 
   return (
     <>
-      <Button outline onClick={() => setModalOpen(true)}>
+      <Button
+        id='reviewButton'
+        outline
+        hidden={!auth}
+        onClick={() => auth && setModalOpen(true)}
+      >
         <i className='fa fa-pencil fa-lg' /> Review Item
       </Button>
       <Modal isOpen={modalOpen}>

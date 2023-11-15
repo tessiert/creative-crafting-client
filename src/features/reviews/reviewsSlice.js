@@ -17,14 +17,14 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
   'reviews/addReview',
   async (review) => {
-    // const bearer = 'Bearer ' + localStorage.getItem('token');
+    const bearer = 'Bearer ' + localStorage.getItem('token');
 
     const response = await fetch(
       baseUrl + 'reviews',
       {
         method: 'POST',
         headers: {
-          // Authorization: bearer,
+          Authorization: bearer,
           'Content-Type': 'application/json'
         },
         credentials: 'same-origin',

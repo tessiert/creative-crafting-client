@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Modal, ModalHeader, ModalBody, Spinner } from 'reactstrap';
+import { Container, Row, Col, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import useLocalStorageState from 'use-local-storage-state';
 import classes from './shopping-cart.module.scss';
@@ -14,9 +14,9 @@ const FREESHIPPINGTHRESH = 35;
 const ShoppingCart = () => {
   const [cart, setCart] = useLocalStorageState('cart', {});
   const [paidModalOpen, setPaidModalOpen] = useState(false);
-  const [errorModalOpen, setErrorModalOpen] = useState(false);
+  const [, setErrorModalOpen] = useState(false);
   const [customerEmail, setCustomerEmail] = useState('');
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   const isObjectEmpty = (obj) => {
     return JSON.stringify(obj) === '{}';

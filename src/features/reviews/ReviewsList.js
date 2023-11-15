@@ -6,8 +6,7 @@ import { selectReviewsByCategory } from './reviewsSlice';
 
 const ReviewsList = ({ category }) => {
   const reviews = useSelector(selectReviewsByCategory(category));
-  // const reviews = selectReviewsByCategory(category);
-  console.log('category:', category);
+
   if (reviews && reviews.length > 0) {
     console.log(reviews);
     return (

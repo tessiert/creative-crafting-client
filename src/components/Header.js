@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
+  Button,
   Container,
   Row,
   Col,
@@ -15,17 +17,54 @@ import {
   DropdownMenu,
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import UserLoginForm from '../features/user/UserLoginForm';
+import UserSignupForm from '../features/user/UserSignupForm';
+import UserAvatar from '../features/user/UserAvatar';
+import {
+  isAuthenticated,
+  userLogout,
+  validateLogin
+} from '../features/user/userSlice';
 import useLocalStorageState from 'use-local-storage-state';
 import SiteLogo from '../app/assets/img/logo.png';
-import orderForm from '../app/assets/docs/order_form.pdf';
 import CartWidget from './CartWidget/CartWidget';
-
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const auth = useSelector(isAuthenticated);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(validateLogin());
+  }, [dispatch]);
+
   const [cart,] = useLocalStorageState('cart', {});
   const getProducts = () => Object.values(cart || {});
   const numItems = getProducts().reduce((accumulator, product) => accumulator + product.quantity, 0);
+
+  const userOptions = auth ? (
+    <>
+      <span className='navbar-text ml-auto'>
+        <Button
+          outline
+          onClick={() => dispatch(userLogout('dummy'))}
+          style={{
+            color: 'white',
+            border: '1px solid white',
+            margin: '5px'
+          }}
+        >
+          <i className='fa fa-sign-out fa-lg' /> Logout
+        </Button>
+      </span>
+      <UserAvatar />
+    </>
+  ) : (
+    <>
+      <UserLoginForm />
+      <UserSignupForm />
+    </>
+  );
 
   return (
     <>
@@ -46,7 +85,7 @@ const Header = () => {
           </Row>
         </Container>
       </header>
-      <Navbar dark expand='lg'>
+      <Navbar dark expand='xl'>
         <NavbarToggler className='navbar-toggler'
           onClick={() => setMenuOpen(!menuOpen)}
         />
@@ -96,18 +135,13 @@ const Header = () => {
                 Contact
               </NavLink>
             </NavItem>
-            {/* <NavItem className='navbar-item navbar-right-item'>
-              <a className='nav-link'
-                href={orderForm} target='_blank' rel='noreferrer'>
-                Orders
-              </a>
-            </NavItem> */}
             <NavItem className='navbar-item navbar-right-item position-absolute end-0'>
               <NavLink className='nav-link' to='/cart'>
                 <CartWidget numItems={numItems} />
               </NavLink>
             </NavItem>
           </Nav>
+          {userOptions}
         </Collapse>
       </Navbar>
     </>
