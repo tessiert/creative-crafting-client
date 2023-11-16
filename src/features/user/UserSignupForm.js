@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validateSignupForm } from '../../utils/validateSignupForm';
+import PasswordField from '../../components/PasswordField';
 
 const UserSignupForm = () => {
   const [signupModalOpen, setSignupModalOpen] = useState(false);
@@ -21,7 +22,7 @@ const UserSignupForm = () => {
       userSignup({
         firstname: values.firstname,
         lastname: values.lastname,
-        email: values.email,
+        email: values.userEmail,
         username: values.username,
         password: values.password
       })
@@ -49,7 +50,7 @@ const UserSignupForm = () => {
             initialValues={{
               firstname: '',
               lastname: '',
-              email: '',
+              userEmail: '',
               username: '',
               password: ''
             }}
@@ -63,6 +64,7 @@ const UserSignupForm = () => {
                   id='firstname'
                   name='firstname'
                   placeholder='First Name'
+                  maxLength='20'
                   className='form-control'
                 />
                 <ErrorMessage name='firstname'>
@@ -75,6 +77,7 @@ const UserSignupForm = () => {
                   id='lastname'
                   name='lastname'
                   placeholder='Last Name'
+                  maxLength='20'
                   className='form-control'
                 />
                 <ErrorMessage name='lastname'>
@@ -82,15 +85,15 @@ const UserSignupForm = () => {
                 </ErrorMessage>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='email'>Email</Label>
+                <Label htmlFor='userEmail'>Email</Label>
                 <Field
-                  id='email'
-                  name='email'
+                  id='userEmail'
+                  name='userEmail'
                   placeholder='Email'
-                  // maxLength='50'
+                  maxLength='50'
                   className='form-control'
                 />
-                <ErrorMessage name='email'>
+                <ErrorMessage name='userEmail'>
                   {(msg) => <p className='text-danger'>{msg}</p>}
                 </ErrorMessage>
               </FormGroup>
@@ -100,6 +103,7 @@ const UserSignupForm = () => {
                   id='username'
                   name='username'
                   placeholder='Username'
+                  maxLength='20'
                   className='form-control'
                 />
                 <ErrorMessage name='username'>
@@ -107,16 +111,7 @@ const UserSignupForm = () => {
                 </ErrorMessage>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='password'>Password</Label>
-                <Field
-                  id='password'
-                  name='password'
-                  placeholder='Password'
-                  className='form-control'
-                />
-                <ErrorMessage name='password'>
-                  {(msg) => <p className='text-danger'>{msg}</p>}
-                </ErrorMessage>
+                <PasswordField />
               </FormGroup>
               <Button type='submit' color='success'>
                 Sign Up

@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validateLoginForm } from '../../utils/validateLoginForm';
+import PasswordField from '../../components/PasswordField';
 
 const UserLoginForm = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -61,6 +62,7 @@ const UserLoginForm = () => {
                   id='username'
                   name='username'
                   placeholder='Username'
+                  maxLength='20'
                   className='form-control'
                 />
                 <ErrorMessage name='username'>
@@ -68,16 +70,7 @@ const UserLoginForm = () => {
                 </ErrorMessage>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='password'>Password</Label>
-                <Field
-                  id='password'
-                  name='password'
-                  placeholder='Password'
-                  className='form-control'
-                />
-                <ErrorMessage name='password'>
-                  {(msg) => <p className='text-danger'>{msg}</p>}
-                </ErrorMessage>
+                <PasswordField />
               </FormGroup>
               <Button type='submit' color='success'>
                 Login
