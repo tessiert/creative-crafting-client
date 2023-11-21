@@ -15,14 +15,23 @@ import {
   DropdownToggle,
   DropdownItem,
   DropdownMenu,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  FormGroup,
+  Label
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import UserLoginForm from '../features/user/UserLoginForm';
-import UserSignupForm from '../features/user/UserSignupForm';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { validateLoginForm } from '../utils/validateLoginForm';
+import { validateSignupForm } from '../utils/validateSignupForm';
+import PasswordField from './PasswordField';
 import UserAvatar from '../features/user/UserAvatar';
 import {
   getFirstname,
   isAuthenticated,
+  userLogin,
+  userSignup,
   userLogout,
   validateLogin
 } from '../features/user/userSlice';
@@ -32,6 +41,8 @@ import CartWidget from './CartWidget/CartWidget';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
   const auth = useSelector(isAuthenticated);
   const firstname = useSelector(getFirstname);
   const dispatch = useDispatch();
@@ -44,28 +55,76 @@ const Header = () => {
   const getProducts = () => Object.values(cart || {});
   const numItems = getProducts().reduce((accumulator, product) => accumulator + product.quantity, 0);
 
-  const userOptions = auth ? (
-    <>
-      <span className='navbar-text navbar-item ml-auto'>
-        <Button
-          outline
-          onClick={() => dispatch(userLogout('dummy'))}
-          style={{
-            color: 'white',
-            border: '1px solid white',
-            margin: '5px'
-          }}
-        >
-          <i className='fa fa-sign-out fa-lg' /> Logout
-        </Button>
-      </span>
-      <UserAvatar firstname={firstname} />
-    </>
-  ) : (
-    <>
-      <UserLoginForm />
-      <UserSignupForm />
-    </>
+  const handleLogin = (values) => {
+    dispatch(
+      userLogin({
+        username: values.username,
+        password: values.password
+      })
+    );
+    setLoginModalOpen(false);
+  };
+
+  const handleSignup = (values) => {
+    dispatch(
+      userSignup({
+        firstname: values.firstname,
+        lastname: values.lastname,
+        email: values.userEmail,
+        username: values.username,
+        password: values.password
+      })
+    );
+    setSignupModalOpen(false);
+  };
+
+  const accountOptions = (
+    <NavItem className='navbar-item'>
+      <UncontrolledDropdown>
+        <DropdownToggle nav caret>
+          Account
+        </DropdownToggle>
+        <DropdownMenu end>
+          <DropdownItem disabled={true}>
+            <NavLink className='nav-disabled nav-link nav-dropdown-item' to='/orders'>
+              Orders
+            </NavLink>
+          </DropdownItem>
+          {auth ? (
+            <DropdownItem>
+              <NavLink
+                className='nav-link nav-dropdown-item'
+                onClick={() => dispatch(userLogout('dummy'))}
+                to='/'
+              >
+                Logout
+              </NavLink>
+            </DropdownItem>
+          ) : (
+            <>
+              <DropdownItem>
+                <NavLink
+                  className='nav-link nav-dropdown-item'
+                  to={window.location.pathname}
+                  onClick={() => setLoginModalOpen(true)}
+                >
+                  Login
+                </NavLink>
+              </DropdownItem>
+              <DropdownItem>
+                <NavLink
+                  className='nav-link nav-dropdown-item'
+                  to={window.location.pathname}
+                  onClick={() => setSignupModalOpen(true)}
+                >
+                  Sign Up
+                </NavLink>
+              </DropdownItem>
+            </>
+          )}
+        </DropdownMenu>
+      </UncontrolledDropdown>
+    </NavItem>
   );
 
   return (
@@ -142,10 +201,126 @@ const Header = () => {
                 <CartWidget numItems={numItems} />
               </NavLink>
             </NavItem>
+            {accountOptions}
           </Nav>
-          {userOptions}
         </Collapse>
       </Navbar>
+      <Modal isOpen={loginModalOpen}>
+        <ModalHeader toggle={() => setLoginModalOpen(false)}>
+          Login
+        </ModalHeader>
+        <ModalBody>
+          <Formik
+            initialValues={{
+              username: '',
+              password: ''
+            }}
+            onSubmit={handleLogin}
+            validate={validateLoginForm}
+          >
+            <Form>
+              <FormGroup>
+                <Label htmlFor='username'>Username</Label>
+                <Field
+                  id='username'
+                  name='username'
+                  placeholder='Username'
+                  maxLength='20'
+                  className='form-control'
+                />
+                <ErrorMessage name='username'>
+                  {(msg) => <p className='text-danger'>{msg}</p>}
+                </ErrorMessage>
+              </FormGroup>
+              <FormGroup>
+                <PasswordField />
+              </FormGroup>
+              <Button type='submit' color='success'>
+                Login
+              </Button>
+            </Form>
+          </Formik>
+        </ModalBody>
+      </Modal>
+      <Modal isOpen={signupModalOpen}>
+        <ModalHeader toggle={() => setSignupModalOpen(false)}>
+          Sign Up
+        </ModalHeader>
+        <ModalBody>
+          <Formik
+            initialValues={{
+              firstname: '',
+              lastname: '',
+              userEmail: '',
+              username: '',
+              password: ''
+            }}
+            onSubmit={handleSignup}
+            validate={validateSignupForm}
+          >
+            <Form>
+              <FormGroup>
+                <Label htmlFor='firstname'>First Name</Label>
+                <Field
+                  id='firstname'
+                  name='firstname'
+                  placeholder='First Name'
+                  maxLength='20'
+                  className='form-control'
+                />
+                <ErrorMessage name='firstname'>
+                  {(msg) => <p className='text-danger'>{msg}</p>}
+                </ErrorMessage>
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor='lastname'>Last Name</Label>
+                <Field
+                  id='lastname'
+                  name='lastname'
+                  placeholder='Last Name'
+                  maxLength='20'
+                  className='form-control'
+                />
+                <ErrorMessage name='lastname'>
+                  {(msg) => <p className='text-danger'>{msg}</p>}
+                </ErrorMessage>
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor='userEmail'>Email</Label>
+                <Field
+                  id='userEmail'
+                  name='userEmail'
+                  placeholder='Email'
+                  maxLength='50'
+                  className='form-control'
+                />
+                <ErrorMessage name='userEmail'>
+                  {(msg) => <p className='text-danger'>{msg}</p>}
+                </ErrorMessage>
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor='username'>Username</Label>
+                <Field
+                  id='username'
+                  name='username'
+                  placeholder='Username'
+                  maxLength='20'
+                  className='form-control'
+                />
+                <ErrorMessage name='username'>
+                  {(msg) => <p className='text-danger'>{msg}</p>}
+                </ErrorMessage>
+              </FormGroup>
+              <FormGroup>
+                <PasswordField />
+              </FormGroup>
+              <Button type='submit' color='success'>
+                Sign Up
+              </Button>
+            </Form>
+          </Formik>
+        </ModalBody>
+      </Modal>
     </>
   );
 };

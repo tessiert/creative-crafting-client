@@ -1,8 +1,8 @@
 const UserAvatar = ({ firstname }) => {
   return (
-    <div className='capitalize avatar'>
+    <span className='capitalize avatar'>
       Welcome, {firstname}
-    </div>
+    </span>
   );
 };
 

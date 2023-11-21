@@ -7,7 +7,9 @@ import {
   ModalBody,
   FormGroup,
   Label,
-  Button
+  NavLink,
+  Button,
+  DropdownItem
 } from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validateLoginForm } from '../../utils/validateLoginForm';
@@ -29,19 +31,17 @@ const UserLoginForm = () => {
 
   return (
     <>
-      <span className='navbar-text navbar-item'>
-        <Button
-          outline
+      {/* <span className='navbar-text navbar-item'> */}
+      <DropdownItem>
+        <NavLink
+          className='nav-link nav-dropdown-item'
+          to={window.location.pathname}
           onClick={() => setLoginModalOpen(true)}
-          style={{
-            color: 'white',
-            border: '1px solid white',
-            margin: '5px'
-          }}
         >
-          <i className='fa fa-sign-in fa-lg' /> Login
-        </Button>
-      </span>
+          Login
+        </NavLink>
+      </DropdownItem>
+      {/* </span> */}
       <Modal isOpen={loginModalOpen}>
         <ModalHeader toggle={() => setLoginModalOpen(false)}>
           Login

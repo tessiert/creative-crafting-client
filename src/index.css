@@ -206,6 +206,10 @@ footer.jumbotron {
   padding: 0 !important;
 }
 
+.nav-disabled {
+  color: grey !important;
+}
+
 .navbar-right-item {
   margin-right: 60px !important;
 }
@@ -230,5 +234,5 @@ footer.jumbotron {
 
 .avatar {
   color: white;
-  margin-left: 10px;
+  margin-left: 50px;
 }

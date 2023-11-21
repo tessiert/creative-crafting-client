@@ -30,12 +30,17 @@ const UserSignupForm = () => {
     setSignupModalOpen(false);
   };
 
+  const handleClick = () => {
+    alert('Hello')
+    // setSignupModalOpen(true)
+  }
+
   return (
     <>
       <span className='navbar-text navbar-item ml-auto'>
         <Button
           outline
-          onClick={() => setSignupModalOpen(true)}
+          onClick={handleClick}
           style={{ color: 'white', border: '1px solid white' }}
         >
           <i className='fa fa-user-plus fa-lg' /> Sign Up
