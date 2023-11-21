@@ -82,7 +82,7 @@ const Header = () => {
     <NavItem className='navbar-item'>
       <UncontrolledDropdown>
         <DropdownToggle nav caret>
-          Account
+          {auth ? <UserAvatar firstname={firstname} /> : 'Account'}
         </DropdownToggle>
         <DropdownMenu end>
           <DropdownItem disabled={true}>
