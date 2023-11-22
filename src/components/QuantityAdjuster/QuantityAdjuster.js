@@ -4,12 +4,12 @@ import classes from './quantity-adjuster.module.scss';
 const maxQty = 5;
 
 const QuantityAdjuster = ({ removeProductCallback, handleUpdateQuantity, productId, qty }) => {
-  const [value, setValue] = useState(qty);
+  const [curQty, setCurQty] = useState(qty);
 
   const reduce = () => {
     handleUpdateQuantity(productId, 'decrement');
 
-    setValue(prevState => {
+    setCurQty(prevState => {
       const updatedValue = prevState - 1
       if (updatedValue === 0) {
         removeProductCallback(productId);
@@ -19,9 +19,9 @@ const QuantityAdjuster = ({ removeProductCallback, handleUpdateQuantity, product
   }
 
   const increase = () => {
-    if (value < maxQty) {
+    if (curQty < maxQty) {
       handleUpdateQuantity(productId, 'increment');
-      setValue(prevState => prevState + 1);
+      setCurQty(prevState => prevState + 1);
     }
   }
 
@@ -30,19 +30,19 @@ const QuantityAdjuster = ({ removeProductCallback, handleUpdateQuantity, product
       removeProductCallback(productId);
     } else {
       handleUpdateQuantity(productId, 'set', qty);
-      setValue(qty);
+      setCurQty(qty);
     }
     return qty;
   }
 
   return (
     <div className={classes.quantityAdjuster}>
-      <input type="button" value="-" className={classes.buttonMinus} onClick={reduce} />
+      <input type="button" disabled={curQty === 1} value="-" className={classes.buttonMinus} onClick={reduce} />
       <input type="number"
         step="1"
-        min="0"
-        max={5}
-        value={value}
+        min={1}
+        max={maxQty}
+        value={curQty}
         disabled
         onChange={e => updateQty(parseInt(e.target.value))}
         className={classes.quantityField} />
