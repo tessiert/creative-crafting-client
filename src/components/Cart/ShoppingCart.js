@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Container, Row, Col, Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import useLocalStorageState from 'use-local-storage-state';
 import classes from './shopping-cart.module.scss';
@@ -131,13 +131,21 @@ const ShoppingCart = () => {
                 </Col>
                 <Col lg='3'>
                   {(product.oneOfAKind) ?
-                    <p>One of a Kind</p> :
+                    <p className='one-of-a-kind'>One of a Kind</p> :
                     <QuantityAdjuster
                       removeProductCallback={() => handleRemoveProduct(product.id)}
                       handleUpdateQuantity={handleUpdateQuantity}
                       productId={product.id}
                       qty={product.quantity}
                     />}
+                  <Button
+                    className='remove-btn'
+                    size='sm'
+                    onClick={() => handleRemoveProduct(product.id)}>
+                    <i
+                      className='fa fa-remove'
+                    />
+                  </Button>
                 </Col>
                 <Col style={{ textAlign: 'left' }}>
                   {product.desc}
