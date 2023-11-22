@@ -19,7 +19,8 @@ import {
   ModalHeader,
   ModalBody,
   FormGroup,
-  Label
+  Label,
+  Tooltip
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -43,6 +44,9 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [signupModalOpen, setSignupModalOpen] = useState(false);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen);
   const auth = useSelector(isAuthenticated);
   const firstname = useSelector(getFirstname);
   const dispatch = useDispatch();
@@ -85,10 +89,21 @@ const Header = () => {
           {auth ? <UserAvatar firstname={firstname} /> : 'Account'}
         </DropdownToggle>
         <DropdownMenu end>
-          <DropdownItem disabled={true}>
-            <NavLink className='nav-disabled nav-link nav-dropdown-item' to='/orders'>
+          <DropdownItem>
+            <NavLink
+              id='nav-orders'
+              className='nav-disabled nav-link nav-dropdown-item'
+              to={window.location.pathname}>
               Orders
             </NavLink>
+            <Tooltip
+              placement={'right'}
+              isOpen={tooltipOpen}
+              target={'nav-orders'}
+              toggle={toggle}
+            >
+              Order History Coming Soon!
+            </Tooltip>
           </DropdownItem>
           {auth ? (
             <DropdownItem>
