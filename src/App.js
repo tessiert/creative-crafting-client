@@ -38,8 +38,8 @@ function App() {
           <Route path='cart' element={<CartPage />} />
           <Route path='contact' element={<ContactPage />} />
           <Route path='shipping' element={<ShippingPage />} />
-          <Route path='hats' element={<HatsPage />} />
-          <Route path='hats/:hatId' element={<HatDetailPage />} />
+          <Route path='crochet-hats' element={<HatsPage />} />
+          <Route path='crochet-hats/:hatId' element={<HatDetailPage />} />
           <Route path='keychains' element={<KeychainsPage />} />
           <Route path='keychains/:keychainId' element={<KeychainDetailPage />} />
           <Route path='necklaces' element={<NecklacesPage />} />

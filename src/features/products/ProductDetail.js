@@ -16,13 +16,13 @@ const ProductDetail = ({ product }) => {
           {/* Conditionally render product description based on
                     product category */}
           <DetailImages img={img} alt={desc} />
-          {(category === 'Crochet Hat') &&
+          {(category === 'crochet-hats') &&
             <HatDescription product={product} />
           }
-          {(category === 'Keychain') &&
+          {(category === 'keychains') &&
             <KeychainDescription product={product} />
           }
-          {(category === 'Necklace') &&
+          {(category === 'necklaces') &&
             <NecklaceDescription product={product} />
           }
         </Row>

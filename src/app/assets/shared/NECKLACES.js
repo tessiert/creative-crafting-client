@@ -14,7 +14,7 @@ export const NECKLACES = [
     img: [img001],
     desc: 'Brown Geodes in Silver Square',
     imgClasses: 'mt-5 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -23,7 +23,7 @@ export const NECKLACES = [
     img: [img002],
     desc: 'Woman Dancing in Small Stainless Steel',
     imgClasses: 'mt-5 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -32,7 +32,7 @@ export const NECKLACES = [
     img: [img003],
     desc: 'Red Seafloor in Silver Circle',
     imgClasses: 'mt-5 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -41,7 +41,7 @@ export const NECKLACES = [
     img: [img004],
     desc: 'Blue Geodes in Silver Square',
     imgClasses: 'mt-0 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -50,7 +50,7 @@ export const NECKLACES = [
     img: [img005],
     desc: 'Blue Jellyfish in Small Stainless Steel',
     imgClasses: 'mt-5 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -60,7 +60,7 @@ export const NECKLACES = [
     desc: 'Butterfly Wing in Bronze Flower - Sold',
     imgClasses: 'mt-5 mb-4 sold',
     captionClasses: 'sold-text',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -69,7 +69,7 @@ export const NECKLACES = [
     img: [img007],
     desc: 'Golden Seafloor in Bronze Circle',
     imgClasses: 'mt-4 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -78,7 +78,7 @@ export const NECKLACES = [
     img: [img008],
     desc: 'White Flower in Silver Circle',
     imgClasses: 'mt-5 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   },
@@ -87,7 +87,7 @@ export const NECKLACES = [
     img: [img009],
     desc: 'Purple Sky, White Clouds in Small Stainless Steel',
     imgClasses: 'mt-5 mb-4',
-    category: 'Necklace',
+    category: 'necklaces',
     price: 20,
     oneOfAKind: true
   }

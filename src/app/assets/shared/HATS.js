@@ -17,7 +17,7 @@ export const HATS = [
     img: [img001, img001_2, img001_3],
     desc: 'Black Suede Cloche With Velvet Flower',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 40,
     oneOfAKind: false
   },
@@ -26,7 +26,7 @@ export const HATS = [
     img: [img002],
     desc: 'Cream Cotton Cloche With Velvet Flower',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 28,
     oneOfAKind: false
   },
@@ -35,7 +35,7 @@ export const HATS = [
     img: [img003],
     desc: 'Brown and White Wool Blend Thick Hat',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 35,
     oneOfAKind: false
   },
@@ -44,7 +44,7 @@ export const HATS = [
     img: [img004],
     desc: 'Light Aqua Cotton Cloche',
     imgClasses: 'mt-0 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 28,
     oneOfAKind: false
   },
@@ -53,7 +53,7 @@ export const HATS = [
     img: [img005],
     desc: 'Oatmeal and Berries Wool Blend Cloche',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 35,
     oneOfAKind: false
   },
@@ -62,7 +62,7 @@ export const HATS = [
     img: [img006],
     desc: '"Light Blues" Wool Blend Thick Hat',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 35,
     oneOfAKind: false
   },
@@ -71,7 +71,7 @@ export const HATS = [
     img: [img007],
     desc: 'Sage Cotton Cloche With Ribbon',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 28,
     oneOfAKind: false
   },
@@ -80,7 +80,7 @@ export const HATS = [
     img: [img008],
     desc: '"Multi Blues" Wool Blend Thick Hat',
     imgClasses: 'mt-4 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 35,
     oneOfAKind: false
   },
@@ -89,7 +89,7 @@ export const HATS = [
     img: [img009],
     desc: 'Taupe Cotton Cloche With Ribbon',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 28,
     oneOfAKind: false
   },
@@ -98,7 +98,7 @@ export const HATS = [
     img: [img010],
     desc: 'White Cotton Cloche With Ribbon',
     imgClasses: 'mt-5 mb-4',
-    category: 'Crochet Hat',
+    category: 'crochet-hats',
     price: 28,
     oneOfAKind: false
   }

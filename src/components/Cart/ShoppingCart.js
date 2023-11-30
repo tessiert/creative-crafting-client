@@ -27,26 +27,45 @@ const ShoppingCart = () => {
       const updatedCart = { ...prevCart };
 
       delete updatedCart[productId];
+      console.log('Remove', updatedCart)
       return updatedCart;
     });
+    console.log('Remove', cart)
   }
 
-  const handleUpdateQuantity = (productId, operation, qty = null) => {
+  // const handleUpdateQuantity = (productId, operation, qty = null) => {
+  //   setCart((prevCart) => {
+  //     const updatedCart = { ...prevCart };
+
+  //     if (updatedCart[productId]) {
+  //       if (operation === 'increment') {
+  //         updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity + 1 };
+  //       } else if (operation === 'decrement') {
+  //         updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity - 1 };
+  //       } else {
+  //         updatedCart[productId] = { ...updatedCart[productId], quantity: qty };
+  //       }
+  //     }
+  //     console.log('Handle Before', updatedCart);
+  //     return updatedCart;
+  //   });
+  //   console.log('Handle After', cart);
+  // }
+
+  const handleUpdateQuantity = (productId, operation) => {
     setCart((prevCart) => {
       const updatedCart = { ...prevCart };
 
       if (updatedCart[productId]) {
         if (operation === 'increment') {
           updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity + 1 };
-        } else if (operation === 'decrement') {
+        } else
           updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity - 1 };
-        } else {
-          updatedCart[productId] = { ...updatedCart[productId], quantity: qty };
-        }
       }
-
+      console.log('Handle Before', updatedCart);
       return updatedCart;
     });
+    console.log('Handle After', cart);
   }
 
   const getProducts = () => Object.values(cart || {});
@@ -57,6 +76,7 @@ const ShoppingCart = () => {
   let totalPrice = cartPrice + shippingPrice;
 
   const handleApprove = (order) => {
+    console.log(order);
     setCustomerEmail(order.payer.email_address);
     setPaidModalOpen(true);
   };
@@ -136,7 +156,7 @@ const ShoppingCart = () => {
                       removeProductCallback={() => handleRemoveProduct(product.id)}
                       handleUpdateQuantity={handleUpdateQuantity}
                       productId={product.id}
-                      qty={product.quantity}
+                    // qty={product.quantity}
                     />}
                   <Button
                     className='remove-btn'

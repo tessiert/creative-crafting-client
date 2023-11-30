@@ -14,7 +14,7 @@ export const KEYCHAINS = [
     img: [img001],
     desc: 'Red Rose in Black Wood',
     imgClasses: 'mt-5 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -23,7 +23,7 @@ export const KEYCHAINS = [
     img: [img002],
     desc: 'Seahorse in Natural Wood',
     imgClasses: 'mt-5 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -32,7 +32,7 @@ export const KEYCHAINS = [
     img: [img003],
     desc: 'Flower Spiral in Bronze',
     imgClasses: 'mt-5 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -41,7 +41,7 @@ export const KEYCHAINS = [
     img: [img004],
     desc: 'Girl With Dandelion and Cat in Silver',
     imgClasses: 'mt-0 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -50,7 +50,7 @@ export const KEYCHAINS = [
     img: [img005],
     desc: 'Butterfly in Black Wood',
     imgClasses: 'mt-5 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -59,7 +59,7 @@ export const KEYCHAINS = [
     img: [img006],
     desc: 'Dolphins at the Beach',
     imgClasses: 'mt-5 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -68,7 +68,7 @@ export const KEYCHAINS = [
     img: [img007],
     desc: 'Sea Witch in Bronze - 1.25 inch (30mm), glass dome',
     imgClasses: 'mt-4 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -77,7 +77,7 @@ export const KEYCHAINS = [
     img: [img008],
     desc: 'Autumn Leaves in Copper',
     imgClasses: 'mt-5 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   },
@@ -86,7 +86,7 @@ export const KEYCHAINS = [
     img: [img009],
     desc: 'Bright Feather in Bronze',
     imgClasses: 'mt-5 mb-4',
-    category: 'Keychain',
+    category: 'keychains',
     price: 15,
     oneOfAKind: true
   }

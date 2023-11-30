@@ -179,7 +179,7 @@ const Header = () => {
                 </DropdownToggle>
                 <DropdownMenu end>
                   <DropdownItem>
-                    <NavLink className='nav-link nav-dropdown-item' to='/hats'>
+                    <NavLink className='nav-link nav-dropdown-item' to='/crochet-hats'>
                       Hats
                     </NavLink>
                   </DropdownItem>
