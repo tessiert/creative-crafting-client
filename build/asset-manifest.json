@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b6636a90.css",
-    "main.js": "/static/js/main.06efcc36.js",
+    "main.js": "/static/js/main.dce33b86.js",
     "static/media/009_1.jpg": "/static/media/009_1.9ce0cda2e84279b74b4f.jpg",
     "static/media/005_1.jpg": "/static/media/005_1.b44cc1d41c1a7c6fe33e.jpg",
     "static/media/004_1.jpg": "/static/media/004_1.b295a76db6fdae1301e8.jpg",
@@ -26,10 +26,10 @@
     "static/media/etsy_icon.png": "/static/media/etsy_icon.6633264e2bed5c93a9c0.png",
     "index.html": "/index.html",
     "main.b6636a90.css.map": "/static/css/main.b6636a90.css.map",
-    "main.06efcc36.js.map": "/static/js/main.06efcc36.js.map"
+    "main.dce33b86.js.map": "/static/js/main.dce33b86.js.map"
   },
   "entrypoints": [
     "static/css/main.b6636a90.css",
-    "static/js/main.06efcc36.js"
+    "static/js/main.dce33b86.js"
   ]
 }
