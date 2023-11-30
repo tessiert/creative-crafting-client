@@ -33,34 +33,18 @@ const ShoppingCart = () => {
     console.log('Remove', cart)
   }
 
-  // const handleUpdateQuantity = (productId, operation, qty = null) => {
-  //   setCart((prevCart) => {
-  //     const updatedCart = { ...prevCart };
-
-  //     if (updatedCart[productId]) {
-  //       if (operation === 'increment') {
-  //         updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity + 1 };
-  //       } else if (operation === 'decrement') {
-  //         updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity - 1 };
-  //       } else {
-  //         updatedCart[productId] = { ...updatedCart[productId], quantity: qty };
-  //       }
-  //     }
-  //     console.log('Handle Before', updatedCart);
-  //     return updatedCart;
-  //   });
-  //   console.log('Handle After', cart);
-  // }
-
-  const handleUpdateQuantity = (productId, operation) => {
+  const handleUpdateQuantity = (productId, operation, qty = null) => {
     setCart((prevCart) => {
       const updatedCart = { ...prevCart };
 
       if (updatedCart[productId]) {
         if (operation === 'increment') {
           updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity + 1 };
-        } else
+        } else if (operation === 'decrement') {
           updatedCart[productId] = { ...updatedCart[productId], quantity: updatedCart[productId].quantity - 1 };
+        } else {
+          updatedCart[productId] = { ...updatedCart[productId], quantity: qty };
+        }
       }
       console.log('Handle Before', updatedCart);
       return updatedCart;
@@ -156,7 +140,7 @@ const ShoppingCart = () => {
                       removeProductCallback={() => handleRemoveProduct(product.id)}
                       handleUpdateQuantity={handleUpdateQuantity}
                       productId={product.id}
-                    // qty={product.quantity}
+                      qty={product.quantity}
                     />}
                   <Button
                     className='remove-btn'
