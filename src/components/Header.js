@@ -69,6 +69,11 @@ const Header = () => {
     setLoginModalOpen(false);
   };
 
+  const handleLogout = () => {
+    dispatch(userLogout('dummy'));
+    setLoginModalOpen(false);
+  }
+
   const handleSignup = (values) => {
     dispatch(
       userSignup({
@@ -109,8 +114,8 @@ const Header = () => {
             <DropdownItem>
               <NavLink
                 className='nav-link nav-dropdown-item'
-                onClick={() => dispatch(userLogout('dummy'))}
-                to='/'
+                onClick={() => handleLogout()}
+                to={window.location.pathname}
               >
                 Logout
               </NavLink>
@@ -123,7 +128,7 @@ const Header = () => {
                   to={window.location.pathname}
                   onClick={() => setLoginModalOpen(true)}
                 >
-                  Login
+                  Sign In
                 </NavLink>
               </DropdownItem>
               <DropdownItem>
@@ -132,7 +137,7 @@ const Header = () => {
                   to={window.location.pathname}
                   onClick={() => setSignupModalOpen(true)}
                 >
-                  Sign Up
+                  Register
                 </NavLink>
               </DropdownItem>
             </>
@@ -222,7 +227,7 @@ const Header = () => {
       </Navbar>
       <Modal isOpen={loginModalOpen}>
         <ModalHeader toggle={() => setLoginModalOpen(false)}>
-          Login
+          Sign in to your account
         </ModalHeader>
         <ModalBody>
           <Formik
@@ -251,7 +256,7 @@ const Header = () => {
                 <PasswordField />
               </FormGroup>
               <Button type='submit' color='success'>
-                Login
+                Submit
               </Button>
             </Form>
           </Formik>
@@ -259,7 +264,7 @@ const Header = () => {
       </Modal>
       <Modal isOpen={signupModalOpen}>
         <ModalHeader toggle={() => setSignupModalOpen(false)}>
-          Sign Up
+          Create an account
         </ModalHeader>
         <ModalBody>
           <Formik
@@ -330,7 +335,7 @@ const Header = () => {
                 <PasswordField />
               </FormGroup>
               <Button type='submit' color='success'>
-                Sign Up
+                Submit
               </Button>
             </Form>
           </Formik>

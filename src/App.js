@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from 'react-scroll-to-top';
 import AboutPage from './pages/AboutPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 import ContactPage from './pages/ContactPage';
 import HatsPage from './pages/hats/HatsPage';
 import HatDetailPage from './pages/hats/HatDetailPage';
@@ -36,6 +37,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='about' element={<AboutPage />} />
           <Route path='cart' element={<CartPage />} />
+          <Route path='checkout' element={<CheckoutPage />} />
           <Route path='contact' element={<ContactPage />} />
           <Route path='shipping' element={<ShippingPage />} />
           <Route path='crochet-hats' element={<HatsPage />} />

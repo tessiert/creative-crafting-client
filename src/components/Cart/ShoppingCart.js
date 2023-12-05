@@ -1,22 +1,34 @@
 import { useState } from 'react';
-import { Container, Row, Col, Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  ButtonGroup,
+  Modal,
+  ModalHeader,
+  ModalBody
+} from 'reactstrap';
 import useLocalStorageState from 'use-local-storage-state';
+import { isAuthenticated } from '../../features/user/userSlice';
 import classes from './shopping-cart.module.scss';
 import QuantityAdjuster from '../QuantityAdjuster/QuantityAdjuster';
-import Price from './Price/Price';
+import SubTotal from './Price/SubTotal';
 import CurrencyFormatter from './CurrencyFormatter/CurrencyFormatter';
 import CartImgLink from './CartImgLink';
-
-const FLATRATESHIPPING = 5;
-const FREESHIPPINGTHRESH = 35;
+import LoginForm from '../LoginForm';
+import SignupForm from '../SignupForm';
 
 const ShoppingCart = () => {
   const [cart, setCart] = useLocalStorageState('cart', {});
-  const [paidModalOpen, setPaidModalOpen] = useState(false);
-  const [, setErrorModalOpen] = useState(false);
-  const [customerEmail, setCustomerEmail] = useState('');
-  const [, setError] = useState(null);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const auth = useSelector(isAuthenticated);
 
   const isObjectEmpty = (obj) => {
     return JSON.stringify(obj) === '{}';
@@ -27,10 +39,8 @@ const ShoppingCart = () => {
       const updatedCart = { ...prevCart };
 
       delete updatedCart[productId];
-      console.log('Remove', updatedCart)
       return updatedCart;
     });
-    console.log('Remove', cart)
   }
 
   const handleUpdateQuantity = (productId, operation, qty = null) => {
@@ -46,81 +56,14 @@ const ShoppingCart = () => {
           updatedCart[productId] = { ...updatedCart[productId], quantity: qty };
         }
       }
-      console.log('Handle Before', updatedCart);
       return updatedCart;
     });
-    console.log('Handle After', cart);
   }
 
   const getProducts = () => Object.values(cart || {});
 
   let cartPrice =
     getProducts().reduce((accumulator, product) => accumulator + (product.price * product.quantity), 0);
-  let shippingPrice = (cartPrice === 0 || cartPrice >= FREESHIPPINGTHRESH) ? 0 : FLATRATESHIPPING;
-  let totalPrice = cartPrice + shippingPrice;
-
-  const handleApprove = (order) => {
-    console.log(order);
-    setCustomerEmail(order.payer.email_address);
-    setPaidModalOpen(true);
-  };
-
-  const createOrder = (data, actions) => {
-    const itemList = getProducts();
-    const items = [];
-
-    for (const item of itemList) {
-      items.push({
-        name: item.desc,
-        quantity: item.quantity.toString(),
-        sku: item.id,
-        unit_amount: {
-          "currency_code": "USD",
-          "value": item.price.toString()
-        }
-      })
-    }
-
-    return actions.order.create({
-      purchase_units: [
-        {
-          "description": 'Payment to Creative Crafting',
-          "items": items,
-          "amount": {
-            "currency_code": "USD",
-            "value": totalPrice.toString(),
-            "breakdown": {
-              "item_total": {
-                "currency_code": "USD",
-                "value": cartPrice.toString()
-              },
-              "shipping": {
-                "currency_code": "USD",
-                "value": FLATRATESHIPPING.toString()
-              },
-              "shipping_discount": {
-                "currency_code": "USD",
-                "value": (cartPrice >= FREESHIPPINGTHRESH) ? FLATRATESHIPPING.toString() : 0
-              }
-            }
-          }
-        }
-      ],
-      intent: 'CAPTURE'
-    });
-  }
-
-  async function onApprove(data, actions) {
-    const order = await actions.order.capture();
-    handleApprove(order);
-  }
-
-  const onError = (err) => {
-    setError(
-      'PayPal is reporting a transaction error.  If you continue to receive this message, please contact us for assistance.');
-    setErrorModalOpen(true);
-
-  }
 
   return (
     <>
@@ -159,44 +102,69 @@ const ShoppingCart = () => {
             </Container>
           ))}
         </div>
-        <Price shipping={shippingPrice} total={totalPrice} />
+        {!isObjectEmpty(cart) &&
+          <SubTotal total={cartPrice} />
+        }
       </section>
-      {!isObjectEmpty(cart) &&
-        <div id='checkoutBtn' className='mt-4 mb-5'
-          style={{
-            width: "300px",
-            margin: 'auto'
-          }}
-        >
-          <PayPalScriptProvider
-            options={
-              {
-                "client-id": "test",
-                components: "buttons",
-                currency: "USD"
-              }
-            }>
-            <PayPalButtons
-              style={{ layout: "vertical", disableMaxWidth: true, maxWidth: '750px' }}
-              createOrder={createOrder}
-              onApprove={onApprove}
-              onError={onError}
-            />
-          </PayPalScriptProvider>
+      {!isObjectEmpty(cart) && auth &&
+        <div className='mt-4 mb-5'>
+          <Button
+            className='btn-lg center mb-2'
+            color='success'
+            onClick={() => navigate('/checkout')}
+          >
+            Checkout
+          </Button>
         </div>
       }
-      <Modal isOpen={paidModalOpen}>
-        <ModalHeader toggle={() => {
-          setPaidModalOpen(false)
-          setCart({})
-        }}
-        />
-        <ModalBody>
-          <p className='text-center'>Thank you for your purchase!  A confirmation
-            email is being sent to {customerEmail}.
-          </p>
-        </ModalBody>
-      </Modal>
+      {!isObjectEmpty(cart) && !auth &&
+        <>
+          <div className='mt-4 same-line'>
+            <ButtonGroup>
+              <Button
+                className='btn-lg mb-2'
+                onClick={() => setLoginModalOpen(true)}
+              >
+                Sign In
+              </Button>
+              <Button
+                className='btn-lg mb-2'
+                onClick={() => setSignupModalOpen(true)}
+              >
+                Register
+              </Button>
+            </ButtonGroup>
+          </div>
+          <a
+            className='text-link inline-center mb-5'
+            href='/checkout'
+          >
+            Checkout as Guest
+          </a>
+          <Modal
+            isOpen={loginModalOpen}
+            onExit={() => setLoginModalOpen(false)}
+          >
+            <ModalHeader toggle={() => setLoginModalOpen(false)}>
+              Sign in to your account
+            </ModalHeader>
+            <ModalBody>
+              <LoginForm />
+            </ModalBody>
+          </Modal>
+          <Modal
+            isOpen={signupModalOpen}
+            onExit={() => setSignupModalOpen(false)}
+          >
+            <ModalHeader toggle={() => setSignupModalOpen(false)}>
+              Create an account
+            </ModalHeader>
+            <ModalBody>
+              <SignupForm />
+            </ModalBody>
+          </Modal>
+        </>
+      }
     </>
   );
 }

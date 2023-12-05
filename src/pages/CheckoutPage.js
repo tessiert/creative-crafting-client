@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import PageTitle from '../components/PageTitle';
-import ShoppingCart from '../components/Cart/ShoppingCart';
+import Checkout from '../components/Cart/Checkout';
 
-const pageTitle = 'Your Cart';
+const pageTitle = 'Checkout';
 const subTitle = '**Free Shipping on Orders of $35 or More**'
 
-const CartPage = () => {
+const CheckoutPage = () => {
+
   useEffect(() => {
     document.title = pageTitle;
     // window.scrollTo({
@@ -18,9 +19,9 @@ const CartPage = () => {
   return (
     <>
       <PageTitle title={pageTitle} subTitle={subTitle} />
-      <ShoppingCart />
+      <Checkout />
     </>
   );
 };
 
-export default CartPage;
+export default CheckoutPage;

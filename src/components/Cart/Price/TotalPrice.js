@@ -1,7 +1,7 @@
 import CurrencyFormatter from '../CurrencyFormatter/CurrencyFormatter';
 import classes from './price.module.scss';
 
-const Price = ({ shipping, total }) => {
+const TotalPrice = ({ shipping, total }) => {
   return (
     <>
       {(total) ?
@@ -17,4 +17,4 @@ const Price = ({ shipping, total }) => {
   );
 }
 
-export default Price;
+export default TotalPrice;

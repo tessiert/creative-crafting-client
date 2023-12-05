@@ -23,11 +23,11 @@ const ContactPage = () => {
 
   useEffect(() => {
     document.title = pageTitle;
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
+    // window.scrollTo({
+    //   top: 0,
+    //   left: 0,
+    //   behavior: "instant",
+    // });
   }, []);
 
   const handleSubmit = (values, { resetForm }) => {
@@ -54,7 +54,7 @@ const ContactPage = () => {
           <Col className='offset-1 col-10 d-flex justify-content-center'>
             <p>Questions? Comments? Have a design in mind or need something
               custom-made? Please get in touch at
-              <a class="text-link" href="mailto:CreativeCrafting@gmail.com"> CreativeCrafting@gmail.com</a> or use the form below.
+              <a className="text-link" href="mailto:CreativeCrafting@gmail.com"> CreativeCrafting@gmail.com</a> or use the form below.
               We'd love to hear from you!
             </p>
           </Col>
@@ -77,7 +77,7 @@ const ContactPage = () => {
                   <Field
                     name='firstName'
                     placeholder='First Name'
-                    maxlength='20'
+                    maxLength='20'
                     className='form-control'
                   />
                   <ErrorMessage name='firstName'>
@@ -89,7 +89,7 @@ const ContactPage = () => {
                   <Field
                     name='lastName'
                     placeholder='Last Name'
-                    maxlength='20'
+                    maxLength='20'
                     className='form-control'
                   />
                   {/* <ErrorMessage name='lastName'>
@@ -101,7 +101,7 @@ const ContactPage = () => {
                   <Field
                     name='email'
                     placeholder='Email'
-                    maxlength='50'
+                    maxLength='50'
                     className='form-control'
                   />
                   <ErrorMessage name='email'>
@@ -114,7 +114,7 @@ const ContactPage = () => {
                     name='message'
                     as='textarea'
                     rows='8'
-                    maxlength='1000'
+                    maxLength='1000'
                     className='form-control'
                   />
                 </FormGroup>
