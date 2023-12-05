@@ -179,11 +179,11 @@ footer.jumbotron {
   margin-right: auto;
 }
 
-.same-line {
+/* .same-line {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .back-to-top {
   position: fixed;

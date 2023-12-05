@@ -19,8 +19,7 @@ import {
   ModalHeader,
   ModalBody,
   FormGroup,
-  Label,
-  Tooltip
+  Label
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -40,13 +39,11 @@ import useLocalStorageState from 'use-local-storage-state';
 import SiteLogo from '../app/assets/img/logo.png';
 import CartWidget from './CartWidget/CartWidget';
 
-const Header = ({ accountNavOpen = false }) => {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [signupModalOpen, setSignupModalOpen] = useState(false);
-  const [tooltipOpen, setTooltipOpen] = useState(false);
 
-  const toggle = () => setTooltipOpen(!tooltipOpen);
   const auth = useSelector(isAuthenticated);
   const firstname = useSelector(getFirstname);
   const dispatch = useDispatch();
@@ -94,51 +91,40 @@ const Header = ({ accountNavOpen = false }) => {
           {auth ? <UserAvatar firstname={firstname} /> : 'Account'}
         </DropdownToggle>
         <DropdownMenu end>
-          <DropdownItem>
+          <DropdownItem disabled={!auth}>
             <NavLink
               id='nav-orders'
-              className='nav-disabled nav-link nav-dropdown-item'
-              to={window.location.pathname}>
+              className={`nav-link nav-dropdown-item ${!auth ? 'nav-disabled' : ''}`}
+              to={'/orders'}>
               Orders
             </NavLink>
-            <Tooltip
-              placement={'right'}
-              isOpen={tooltipOpen}
-              target={'nav-orders'}
-              toggle={toggle}
-            >
-              Order History Coming Soon!
-            </Tooltip>
           </DropdownItem>
           {auth ? (
             <DropdownItem>
-              <NavLink
+              <Button
                 className='nav-link nav-dropdown-item'
                 onClick={() => handleLogout()}
-                to={window.location.pathname}
               >
                 Logout
-              </NavLink>
+              </Button>
             </DropdownItem>
           ) : (
             <>
-              <DropdownItem isOpen={accountNavOpen}>
-                <NavLink
+              <DropdownItem>
+                <Button
                   className='nav-link nav-dropdown-item'
-                  to={window.location.pathname}
                   onClick={() => setLoginModalOpen(true)}
                 >
                   Sign In
-                </NavLink>
+                </Button>
               </DropdownItem>
               <DropdownItem>
-                <NavLink
+                <Button
                   className='nav-link nav-dropdown-item'
-                  to={window.location.pathname}
                   onClick={() => setSignupModalOpen(true)}
                 >
                   Register
-                </NavLink>
+                </Button>
               </DropdownItem>
             </>
           )}

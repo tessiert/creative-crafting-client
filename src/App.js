@@ -16,6 +16,7 @@ import NecklacesPage from './pages/necklaces/NecklacesPage';
 import NecklaceDetailPage from './pages/necklaces/NecklaceDetailPage';
 import HomePage from './pages/HomePage';
 import ShippingPage from './pages/ShippingPage';
+import OrdersPage from './pages/OrdersPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { fetchReviews } from './features/reviews/reviewsSlice';
@@ -46,6 +47,7 @@ function App() {
           <Route path='keychains/:keychainId' element={<KeychainDetailPage />} />
           <Route path='necklaces' element={<NecklacesPage />} />
           <Route path='necklaces/:necklaceId' element={<NecklaceDetailPage />} />
+          <Route path='orders' element={<OrdersPage />} />
         </Routes>
         <Footer />
       </Router>
