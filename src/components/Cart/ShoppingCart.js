@@ -1,15 +1,10 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
   Row,
   Col,
-  Button,
-  ButtonGroup,
-  Modal,
-  ModalHeader,
-  ModalBody
+  Button
 } from 'reactstrap';
 import useLocalStorageState from 'use-local-storage-state';
 import { isAuthenticated } from '../../features/user/userSlice';
@@ -18,13 +13,9 @@ import QuantityAdjuster from '../QuantityAdjuster/QuantityAdjuster';
 import SubTotal from './Price/SubTotal';
 import CurrencyFormatter from './CurrencyFormatter/CurrencyFormatter';
 import CartImgLink from './CartImgLink';
-import LoginForm from '../LoginForm';
-import SignupForm from '../SignupForm';
 
 const ShoppingCart = () => {
   const [cart, setCart] = useLocalStorageState('cart', {});
-  const [loginModalOpen, setLoginModalOpen] = useState(false);
-  const [signupModalOpen, setSignupModalOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -64,6 +55,14 @@ const ShoppingCart = () => {
 
   let cartPrice =
     getProducts().reduce((accumulator, product) => accumulator + (product.price * product.quantity), 0);
+
+  const handleSignInRegister = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }
 
   return (
     <>
@@ -119,50 +118,18 @@ const ShoppingCart = () => {
       }
       {!isObjectEmpty(cart) && !auth &&
         <>
-          <div className='mt-4 same-line'>
-            <ButtonGroup>
-              <Button
-                className='btn-lg mb-2'
-                onClick={() => setLoginModalOpen(true)}
-              >
-                Sign In
-              </Button>
-              <Button
-                className='btn-lg mb-2'
-                onClick={() => setSignupModalOpen(true)}
-              >
-                Register
-              </Button>
-            </ButtonGroup>
-          </div>
+          <Button
+            className='btn-lg mt-4 mb-2 center'
+            color='success'
+            onClick={() => handleSignInRegister()}>
+            Account Sign In/Register
+          </Button>
           <a
             className='text-link inline-center mb-5'
             href='/checkout'
           >
             Checkout as Guest
           </a>
-          <Modal
-            isOpen={loginModalOpen}
-            onExit={() => setLoginModalOpen(false)}
-          >
-            <ModalHeader toggle={() => setLoginModalOpen(false)}>
-              Sign in to your account
-            </ModalHeader>
-            <ModalBody>
-              <LoginForm />
-            </ModalBody>
-          </Modal>
-          <Modal
-            isOpen={signupModalOpen}
-            onExit={() => setSignupModalOpen(false)}
-          >
-            <ModalHeader toggle={() => setSignupModalOpen(false)}>
-              Create an account
-            </ModalHeader>
-            <ModalBody>
-              <SignupForm />
-            </ModalBody>
-          </Modal>
         </>
       }
     </>

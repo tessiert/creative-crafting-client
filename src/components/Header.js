@@ -40,7 +40,7 @@ import useLocalStorageState from 'use-local-storage-state';
 import SiteLogo from '../app/assets/img/logo.png';
 import CartWidget from './CartWidget/CartWidget';
 
-const Header = () => {
+const Header = ({ accountNavOpen = false }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [signupModalOpen, setSignupModalOpen] = useState(false);
@@ -122,7 +122,7 @@ const Header = () => {
             </DropdownItem>
           ) : (
             <>
-              <DropdownItem>
+              <DropdownItem isOpen={accountNavOpen}>
                 <NavLink
                   className='nav-link nav-dropdown-item'
                   to={window.location.pathname}
