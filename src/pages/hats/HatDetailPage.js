@@ -11,6 +11,11 @@ const pageTitle = 'Hand Crochet Hats';
 const HatDetailPage = () => {
   useEffect(() => {
     document.title = pageTitle;
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
   }, []);
 
   const { hatId } = useParams();
