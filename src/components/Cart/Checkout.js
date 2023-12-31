@@ -9,6 +9,9 @@ import CurrencyFormatter from './CurrencyFormatter/CurrencyFormatter';
 
 const FLATRATESHIPPING = 5;
 const FREESHIPPINGTHRESH = 35;
+const MODE = process.env.NODE_ENV;
+const clientID = (MODE === 'development')
+  ? 'test' : 'AcwjfeuGgxqIrHchDIg08I-8CZBYZzGKB7V57ZQDr8YKtE9SHSA9wT3Y27k2zVjQH1_IOCAmzqQ3IiXt'
 
 const Checkout = () => {
   const [cart, setCart] = useLocalStorageState('cart', {});
@@ -127,7 +130,7 @@ const Checkout = () => {
           <PayPalScriptProvider
             options={
               {
-                "client-id": "test",
+                "client-id": clientID,
                 components: "buttons",
                 currency: "USD"
               }
