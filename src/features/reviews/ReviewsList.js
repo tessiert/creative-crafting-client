@@ -8,7 +8,6 @@ const ReviewsList = ({ category }) => {
   const reviews = useSelector(selectReviewsByCategory(category));
 
   if (reviews && reviews.length > 0) {
-    console.log(reviews);
     return (
       <Col className='m-3'>
         {reviews.map((review) => {

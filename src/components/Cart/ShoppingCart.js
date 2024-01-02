@@ -16,9 +16,7 @@ import CartImgLink from './CartImgLink';
 
 const ShoppingCart = () => {
   const [cart, setCart] = useLocalStorageState('cart', {});
-
   const navigate = useNavigate();
-
   const auth = useSelector(isAuthenticated);
 
   const isObjectEmpty = (obj) => {

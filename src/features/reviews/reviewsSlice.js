@@ -35,7 +35,6 @@ export const addReview = createAsyncThunk(
       return Promise.reject(response.status);
     }
     const data = await response.json();
-    console.log('data:', data);
     return data;
   }
 );

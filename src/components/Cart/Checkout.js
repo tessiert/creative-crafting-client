@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import useLocalStorageState from 'use-local-storage-state';
+import { addOrder } from '../../features/orders/ordersSlice'
+import { isAuthenticated, getUsername } from '../../features/user/userSlice';
 import classes from './shopping-cart.module.scss';
 import TotalPrice from './Price/TotalPrice';
 import CurrencyFormatter from './CurrencyFormatter/CurrencyFormatter';
@@ -20,7 +23,10 @@ const Checkout = () => {
   const [customerEmail, setCustomerEmail] = useState('');
   const [, setError] = useState(null);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const auth = useSelector(isAuthenticated);
+  const username = useSelector(getUsername);
 
   const isObjectEmpty = (obj) => {
     return JSON.stringify(obj) === '{}';
@@ -35,6 +41,14 @@ const Checkout = () => {
 
   const handleApprove = (order) => {
     console.log(order);
+    if (auth) {
+      const userOrder = {
+        'username': username,
+        'order': order
+      }
+      dispatch(addOrder(userOrder));
+    }
+
     setCustomerEmail(order.payer.email_address);
     setCart({});
     setPaidModalOpen(true);

@@ -127,9 +127,10 @@ const userSlice = createSlice({
       state.isLoading = false;
       localStorage.setItem('token', action.payload.token);
       localStorage.setItem('firstname', action.payload.firstname);
-      console.log(
-        `Login successful for user with _id: ${action.payload.id}`
-      );
+      localStorage.setItem('username', action.payload.username);
+      // console.log(
+      //   `Login successful for user with _id: ${action.payload.id}`
+      // );
     },
     [userLogin.rejected]: (state, action) => {
       state.isLoading = false;
@@ -157,6 +158,10 @@ export const { setCurrentUser, clearCurrentUser } = userSlice.actions;
 
 export const getFirstname = () => {
   return localStorage.getItem('firstname');
+}
+
+export const getUsername = () => {
+  return localStorage.getItem('username');
 }
 
 export const isAuthenticated = () => {
