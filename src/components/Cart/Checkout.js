@@ -44,7 +44,7 @@ const Checkout = () => {
     if (auth) {
       const userOrder = {
         'username': username,
-        'order': order
+        'orderData': order
       }
       dispatch(addOrder(userOrder));
     }

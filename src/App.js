@@ -20,6 +20,7 @@ import OrdersPage from './pages/OrdersPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { fetchReviews } from './features/reviews/reviewsSlice';
+import { fetchOrders } from './features/orders/ordersSlice';
 // import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchReviews());
+    dispatch(fetchOrders());
   }, [dispatch]);
 
   return (

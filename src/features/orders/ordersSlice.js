@@ -5,6 +5,7 @@ export const fetchOrders = createAsyncThunk(
   'orders/fetchOrders',
   async () => {
     const response = await fetch(baseUrl + 'orders');
+
     if (!response.ok) {
       return Promise.reject('Unable to fetch orders, status: ' + response.status);
     }
@@ -16,9 +17,8 @@ export const fetchOrders = createAsyncThunk(
 // Log a new order to the DB
 export const addOrder = createAsyncThunk(
   'orders/addOrder',
-  async (userOrder) => {
+  async (order) => {
     const bearer = 'Bearer ' + localStorage.getItem('token');
-    console.log(userOrder);
 
     const response = await fetch(
       baseUrl + 'orders',
@@ -29,7 +29,7 @@ export const addOrder = createAsyncThunk(
           'Content-Type': 'application/json'
         },
         credentials: 'same-origin',
-        body: JSON.stringify(userOrder)
+        body: JSON.stringify(order)
       }
     );
     if (!response.ok) {
@@ -82,9 +82,9 @@ export const selectAllOrders = (state) => {
   return state.orders.ordersArray;
 };
 
-export const selectOrdersByUserID = (userID) => (state) => {
-  const order = state.orders.ordersArray.filter(
-    (order) => order.userID === userID
+export const selectOrdersByUsername = (username) => (state) => {
+  const orders = state.orders.ordersArray.filter(
+    (orders) => orders.username === username
   );
-  return order;
+  return orders;
 };

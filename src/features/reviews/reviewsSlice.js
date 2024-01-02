@@ -82,8 +82,8 @@ export const selectAllReviews = (state) => {
 };
 
 export const selectReviewsByCategory = (category) => (state) => {
-  const review = state.reviews.reviewsArray.filter(
-    (review) => review.category === category
+  const reviews = state.reviews.reviewsArray.filter(
+    (reviews) => reviews.category === category
   );
-  return review;
+  return reviews;
 };

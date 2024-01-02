@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import PageTitle from '../components/PageTitle';
+import OrdersList from '../features/orders/OrdersList';
 
 const pageTitle = 'Order History';
 
@@ -12,7 +13,7 @@ const OrdersPage = () => {
   return (
     <>
       <PageTitle title={pageTitle} />
-      <div className='inline-center mb-5'>This account currently has no order history.</div>
+      <OrdersList />
     </>
   );
 };
