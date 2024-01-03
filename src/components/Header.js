@@ -30,6 +30,7 @@ import UserAvatar from '../features/user/UserAvatar';
 import {
   getFirstname,
   isAuthenticated,
+  isLoading,
   userLogin,
   userSignup,
   userLogout,
@@ -38,6 +39,7 @@ import {
 import useLocalStorageState from 'use-local-storage-state';
 import SiteLogo from '../app/assets/img/logo.png';
 import CartWidget from './CartWidget/CartWidget';
+import NavSpinner from './NavSpinner';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,6 +47,7 @@ const Header = () => {
   const [signupModalOpen, setSignupModalOpen] = useState(false);
 
   const auth = useSelector(isAuthenticated);
+  const loading = useSelector(isLoading);
   const firstname = useSelector(getFirstname);
   const dispatch = useDispatch();
 
@@ -77,7 +80,7 @@ const Header = () => {
         firstname: values.firstname,
         lastname: values.lastname,
         email: values.userEmail,
-        username: values.username,
+        username: values.userEmail,
         password: values.password
       })
     );
@@ -88,7 +91,9 @@ const Header = () => {
     <NavItem className='navbar-item'>
       <UncontrolledDropdown>
         <DropdownToggle nav caret>
-          {auth ? <UserAvatar firstname={firstname} /> : 'Account'}
+          {auth ? <UserAvatar firstname={firstname} /> :
+            loading ? <NavSpinner className='vertical-center' /> :
+              'Account'}
         </DropdownToggle>
         <DropdownMenu end>
           <DropdownItem disabled={!auth}>
@@ -226,12 +231,12 @@ const Header = () => {
           >
             <Form>
               <FormGroup>
-                <Label htmlFor='username'>Username</Label>
+                <Label htmlFor='username'>Email</Label>
                 <Field
                   id='username'
                   name='username'
-                  placeholder='Username'
-                  maxLength='20'
+                  placeholder='Email'
+                  maxLength='50'
                   className='form-control'
                 />
                 <ErrorMessage name='username'>
@@ -304,19 +309,19 @@ const Header = () => {
                   {(msg) => <p className='text-danger'>{msg}</p>}
                 </ErrorMessage>
               </FormGroup>
-              <FormGroup>
+              {/* <FormGroup>
                 <Label htmlFor='username'>Username</Label>
                 <Field
                   id='username'
                   name='username'
                   placeholder='Username'
-                  maxLength='20'
+                  maxLength='50'
                   className='form-control'
                 />
                 <ErrorMessage name='username'>
                   {(msg) => <p className='text-danger'>{msg}</p>}
                 </ErrorMessage>
-              </FormGroup>
+              </FormGroup> */}
               <FormGroup>
                 <PasswordField />
               </FormGroup>

@@ -179,6 +179,12 @@ footer.jumbotron {
   margin-right: auto;
 }
 
+.vertical-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* .same-line {
   display: flex;
   align-items: center;

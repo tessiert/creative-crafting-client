@@ -23,13 +23,13 @@ export const validateSignupForm = (values) => {
     errors.userEmail = 'Please enter a valid Email address.';
   }
 
-  if (!values.username) {
-    errors.username = 'Required';
-  } else if (values.username.length < 5) {
-    errors.username = 'Must be at least 5 characters.';
-    // } else if (values.username.length > 20) {
-    //   errors.username = 'Must be 20 characters or less';
-  }
+  // if (!values.username) {
+  //   errors.username = 'Required';
+  // } else if (values.username.length < 5) {
+  // errors.username = 'Must be at least 5 characters.';
+  // } else if (values.username.length > 20) {
+  //   errors.username = 'Must be 20 characters or less';
+  // }
 
   if (!values.password) {
     errors.password = 'Required';

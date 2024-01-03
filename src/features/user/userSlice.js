@@ -16,9 +16,9 @@ export const userSignup = createAsyncThunk(
       return Promise.reject(response.status);
     }
     const data = await response.json();
-    if (data.success) {
-      dispatch(userLogin({ username, password }));
-    }
+    // if (data.success) {
+    //   dispatch(userLogin({ username, password }));
+    // }
     return data;
   }
 );
@@ -135,12 +135,15 @@ const userSlice = createSlice({
     [userLogin.rejected]: (state, action) => {
       state.isLoading = false;
       localStorage.removeItem('token');
-      alert('Login failed.', action.error.message);
+      alert('Invalid login credentials. Please try again.', action.error.message);
     },
     [userLogout.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [userLogout.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [userSignup.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [userSignup.pending]: (state) => {
@@ -164,6 +167,10 @@ export const getUsername = () => {
   return localStorage.getItem('username');
 }
 
+export const isLoading = (state) => {
+  return state.user.isLoading;
+}
+
 export const isAuthenticated = () => {
   return localStorage.getItem('token') ? true : false;
-};
+}
