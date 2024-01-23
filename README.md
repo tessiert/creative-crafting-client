@@ -4,7 +4,7 @@
 
 https://github.com/tessiert/creative-crafting-client/assets/39570561/90455c46-0967-4be4-8c07-0b9a57771485
 
-https://creativecrafting.dreamhosters.com
+# https://creativecrafting.dreamhosters.com
 
 This repository contains the front end piece of an online storefront for the display and purchase of handcrafted items (crochet hats, necklaces, keychains, etc).  It is written as a Single Page App in ReactJS, Redux, Javascript, and ReactStrap.  The shopping cart employs use_local_storage_state and is integrated with a payment gateway using the react_paypal_js package.
 
